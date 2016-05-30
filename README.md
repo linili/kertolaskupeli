@@ -1,8 +1,8 @@
 # kertolaskupeli
 Muistipeli kertolaskujen opetteluun
 ##Dokumentaatio
-[aiheen kuvaus](dokumentaatio/aiheenKuvausJaRakenne.md)  
+[aiheen kuvaus](Dokumentaatio/aiheenKuvausJaRakenne.md)  
 
-[tuntikirjanpito](dokumentaatio/Tuntikirjanpito.md)
+[tuntikirjanpito](Dokumentaatio/Tuntikirjanpito.md)
 
 
