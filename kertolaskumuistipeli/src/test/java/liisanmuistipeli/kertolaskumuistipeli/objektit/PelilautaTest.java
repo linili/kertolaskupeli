@@ -18,6 +18,7 @@ import static org.junit.Assert.*;
  * @author liisapauliina
  */
 public class PelilautaTest {
+     Pelilauta p;
     
     public PelilautaTest() {
     }
@@ -32,15 +33,28 @@ public class PelilautaTest {
     
     @Before
     public void setUp() {
+        p = new Pelilauta(6);
     }
     
     @After
     public void tearDown() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+     @Test
+     public void konstruktori_asettaa_kertojan() {
+         
+         assertEquals(6, p.getKertoja());
+     }
+     
+      @Test
+     public void konstruktori_asettaa_kysymyskortit() {
+         
+         assertEquals(10, p.getKysymykset().size());
+     }
+     
+     @Test
+     public void konstruktori_asettaa_vastauskortit() {
+         
+         assertEquals(10, p.getVastaukset().size());
+     }
 }

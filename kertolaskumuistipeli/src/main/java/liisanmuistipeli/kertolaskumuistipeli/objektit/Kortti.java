@@ -12,20 +12,35 @@ package liisanmuistipeli.kertolaskumuistipeli.objektit;
 public class Kortti {
     private boolean loydetty;
     private boolean kaannetty;
+    private int kertoja;
+    private int kerrottava;
+    private int tyyppi;
     
     public Kortti(int kertoja, int kerrottava, int tyyppi) {
-        
+        this.kertoja = kertoja;
+        this.kerrottava = kerrottava;
+        this.tyyppi = tyyppi;
     }
     
-    public void käännä() {
-        
+    public int getKertoja() {
+        return this.kertoja;
     }
-    public void esiin() {
-        
+    public int getKerrottava() {
+        return this.kerrottava;
+    }
+    public int getTyyppi() {
+        return this.tyyppi;
+    }
+    
+    public void kaanna() {
+        kaannetty = true;
+    }
+    public void poistaPoydalta() {
+        loydetty = true;
     }
     
     public void piiloon() {
-        
+        kaannetty = false;
     }
     public boolean onkoKaannetty() {
         return kaannetty;
@@ -33,4 +48,5 @@ public class Kortti {
     public boolean onkoLoydetty() {
         return loydetty;
     }
+
 }

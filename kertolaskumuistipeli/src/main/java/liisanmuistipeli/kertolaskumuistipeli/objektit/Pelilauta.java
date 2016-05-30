@@ -15,9 +15,29 @@ import java.util.ArrayList;
 public class Pelilauta {
     private ArrayList<Kortti> kysymysKortit;
     private ArrayList<Kortti> vastausKortit;
+    private int kertoja;
     
     public Pelilauta(int kertoja) {
-        kysymysKortit = new ArrayList<>();
-        vastausKortit = new ArrayList<>();
+        this.kertoja = kertoja;
+        kysymysKortit = new ArrayList<Kortti>();
+        vastausKortit = new ArrayList<Kortti>();
+        int i = 1;
+        while (i<11) {
+            this.kysymysKortit.add(new Kortti(kertoja, i, 1));
+            this.vastausKortit.add(new Kortti(kertoja, i, 0));
+            i++;
+        }
+        
+    }
+
+    public int getKertoja() {
+        return this.kertoja;
+    }
+    
+    public ArrayList<Kortti> getVastaukset() {
+        return this.vastausKortit;
+    }
+    public ArrayList<Kortti> getKysymykset() {
+        return this.kysymysKortit;
     }
 }
