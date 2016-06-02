@@ -40,4 +40,40 @@ public class Pelilauta {
     public ArrayList<Kortti> getKysymykset() {
         return this.kysymysKortit;
     }
-}
+    
+    public void valitseKysymyskortti(int i) {
+        for (Kortti kortti: this.kysymysKortit) {
+            if (kortti.onkoKaannetty()) {
+                System.out.println("ei voi kääntää");
+            }
+        }
+        this.kysymysKortit.get(i).kaanna();
+    }
+    public void valitseVastauskortti(int i) {
+        for (Kortti kortti : this.vastausKortit) {
+            if (kortti.onkoKaannetty()) {
+                System.out.println("ei voi kääntää");
+            }
+        }
+            this.vastausKortit.get(i).kaanna();
+        }
+    public boolean OnkoPari() {
+        Kortti valittu1 = null;
+        Kortti valittu2 = null;
+        for (Kortti kk : this.kysymysKortit) {
+            if (kk.onkoKaannetty()) {
+                valittu1 = kk;
+            }
+        }
+        for (Kortti kv : this.vastausKortit) {
+            if (kv.onkoKaannetty()) {
+                valittu2=kv;
+            }
+        }
+        if (valittu1.getKerrottava()== valittu2.getKerrottava()) {
+            return true;
+        }
+        return false;
+    }
+    }
+
