@@ -5,48 +5,73 @@
  */
 package liisanmuistipeli.kertolaskumuistipeli.objektit;
 
+import java.util.*;
+
 /**
  *
  * @author liisapauliina
  */
 public class Kortti {
+
     private boolean loydetty;
     private boolean kaannetty;
     private int kertoja;
     private int kerrottava;
     private int tyyppi;
-    
+
     public Kortti(int kertoja, int kerrottava, int tyyppi) {
         this.kertoja = kertoja;
         this.kerrottava = kerrottava;
         this.tyyppi = tyyppi;
+        this.loydetty = false;
+        this.kaannetty = false;
     }
-    
+
     public int getKertoja() {
         return this.kertoja;
     }
+
     public int getKerrottava() {
         return this.kerrottava;
     }
+
     public int getTyyppi() {
         return this.tyyppi;
     }
-    
+
     public void kaanna() {
         kaannetty = true;
     }
+
     public void poistaPoydalta() {
         loydetty = true;
     }
-    
+
     public void piiloon() {
         kaannetty = false;
     }
+
     public boolean onkoKaannetty() {
         return kaannetty;
     }
+
     public boolean onkoLoydetty() {
         return loydetty;
+    }
+
+    @Override
+    public String toString() {
+       
+        if (this.kaannetty) {
+
+            if (this.tyyppi == 0) {
+                return Integer.toString(this.kerrottava * this.kertoja);
+            }
+            if (this.tyyppi == 1) {
+                return Integer.toString(this.kertoja) + "x" + Integer.toString(this.kerrottava);
+            }
+        }
+        return "XXX";
     }
 
 }

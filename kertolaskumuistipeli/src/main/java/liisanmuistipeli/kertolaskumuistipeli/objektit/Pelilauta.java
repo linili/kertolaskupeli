@@ -6,57 +6,62 @@
 package liisanmuistipeli.kertolaskumuistipeli.objektit;
 
 import java.util.ArrayList;
-
+import java.util.Collections;
 
 /**
  *
  * @author liisapauliina
  */
 public class Pelilauta {
+
     private ArrayList<Kortti> kysymysKortit;
     private ArrayList<Kortti> vastausKortit;
     private int kertoja;
-    
+
     public Pelilauta(int kertoja) {
         this.kertoja = kertoja;
         kysymysKortit = new ArrayList<Kortti>();
         vastausKortit = new ArrayList<Kortti>();
         int i = 1;
-        while (i<11) {
+        while (i < 11) {
             this.kysymysKortit.add(new Kortti(kertoja, i, 1));
             this.vastausKortit.add(new Kortti(kertoja, i, 0));
             i++;
         }
-        
+        Collections.shuffle(this.kysymysKortit);
+        Collections.shuffle(this.vastausKortit);
     }
 
     public int getKertoja() {
         return this.kertoja;
     }
-    
+
     public ArrayList<Kortti> getVastaukset() {
         return this.vastausKortit;
     }
+
     public ArrayList<Kortti> getKysymykset() {
         return this.kysymysKortit;
     }
-    
+
     public void valitseKysymyskortti(int i) {
-        for (Kortti kortti: this.kysymysKortit) {
+        for (Kortti kortti : this.kysymysKortit) {
             if (kortti.onkoKaannetty()) {
                 System.out.println("ei voi kääntää");
             }
         }
         this.kysymysKortit.get(i).kaanna();
     }
+
     public void valitseVastauskortti(int i) {
         for (Kortti kortti : this.vastausKortit) {
             if (kortti.onkoKaannetty()) {
                 System.out.println("ei voi kääntää");
             }
         }
-            this.vastausKortit.get(i).kaanna();
-        }
+        this.vastausKortit.get(i).kaanna();
+    }
+
     public boolean OnkoPari() {
         Kortti valittu1 = null;
         Kortti valittu2 = null;
@@ -67,13 +72,52 @@ public class Pelilauta {
         }
         for (Kortti kv : this.vastausKortit) {
             if (kv.onkoKaannetty()) {
-                valittu2=kv;
+                valittu2 = kv;
             }
         }
-        if (valittu1.getKerrottava()== valittu2.getKerrottava()) {
+        if (valittu1.getKerrottava() == valittu2.getKerrottava()) {
             return true;
         }
         return false;
     }
+
+    public boolean onkoKaikkiLoydetty() {
+        for (Kortti k : this.kysymysKortit) {
+            if (k.onkoLoydetty() == false) {
+                return false;
+            }
+        }
+        return true;
     }
 
+    public void tulostaKortit() {
+        for (Kortti kk : this.kysymysKortit) {
+            System.out.println(kk);
+        }
+        System.out.println("");
+
+        for (Kortti kv : this.vastausKortit) {
+            System.out.println(kv);
+        }
+        System.out.println("");
+        System.out.println("--------");
+        System.out.println("");
+    }
+
+    public boolean jatkuu() {
+        if (onkoKaikkiLoydetty() == false) {
+            return true;
+        }
+        return false;
+    }
+
+    public void piilotaKortit(int v1, int v2) {
+        this.kysymysKortit.get(v1).piiloon();
+        this.vastausKortit.get(v2).piiloon();
+    }
+
+    public void poistaKortit(int v1, int v2) {
+        this.kysymysKortit.get(v1).poistaPoydalta();
+        this.vastausKortit.get(v2).poistaPoydalta();
+    }
+}
