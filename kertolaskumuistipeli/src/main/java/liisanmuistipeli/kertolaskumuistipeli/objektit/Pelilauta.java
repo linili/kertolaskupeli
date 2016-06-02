@@ -22,7 +22,7 @@ public class Pelilauta {
         this.kertoja = kertoja;
         kysymysKortit = new ArrayList<Kortti>();
         vastausKortit = new ArrayList<Kortti>();
-        int i = 1;
+        int i=1;
         while (i < 11) {
             this.kysymysKortit.add(new Kortti(kertoja, i, 1));
             this.vastausKortit.add(new Kortti(kertoja, i, 0));
