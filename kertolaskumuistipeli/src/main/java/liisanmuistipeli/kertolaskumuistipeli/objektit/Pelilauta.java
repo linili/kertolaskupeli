@@ -78,7 +78,7 @@ public class Pelilauta {
         this.vastausKortit.get(i).kaanna();
     }
 
-    public boolean OnkoPari(int v1, int v2) {
+    public boolean onkoPari(int v1, int v2) {
         if (this.kysymysKortit.get(v1).getKerrottava() == this.vastausKortit.get(v2).getKerrottava()) {
             return true;
         }
@@ -110,6 +110,7 @@ public class Pelilauta {
     }
 
     public void tulostaKortit() {
+        System.out.println("--------");
         for (Kortti kk : this.kysymysKortit) {
             System.out.println(kk);
         }

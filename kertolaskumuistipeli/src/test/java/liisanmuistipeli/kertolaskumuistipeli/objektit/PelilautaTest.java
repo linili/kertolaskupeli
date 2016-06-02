@@ -106,6 +106,18 @@ public class PelilautaTest {
          assertEquals(p.getKysymykset().get(0).onkoLoydetty(), true);
          assertEquals(p.getVastaukset().get(1).onkoLoydetty(), true);
      }
+     @Test
+     public void eiKaannaVaarallaIndeksillaKysymysKorttia() {
+         p.valitseKysymyskortti(11);
+         p.valitseKysymyskortti(6);
+         assertEquals(p.getKysymykset().get(6).onkoKaannetty(), true);
+     }
+     @Test
+     public void eiKaannaVaarallaIndeksillaVastausKorttia() {
+         p.valitseVastauskortti(11);
+         p.valitseVastauskortti(6);
+         assertEquals(p.getVastaukset().get(6).onkoKaannetty(), true);
+     }
      
      
 }

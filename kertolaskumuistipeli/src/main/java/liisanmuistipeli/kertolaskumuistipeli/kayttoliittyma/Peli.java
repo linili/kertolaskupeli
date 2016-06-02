@@ -42,7 +42,7 @@ public class Peli {
         int v2 = lukija.nextInt();
         this.lauta.valitseVastauskortti(v2);
         this.lauta.tulostaKortit();
-        if (this.lauta.OnkoPari(v1, v2)) {
+        if (this.lauta.onkoPari(v1, v2)) {
             this.lauta.poistaKortit(v1, v2);
         } else {
             this.lauta.piilotaKortit(v1, v2);
