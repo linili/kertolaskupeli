@@ -22,7 +22,7 @@ public class Pelilauta {
         this.kertoja = kertoja;
         kysymysKortit = new ArrayList<Kortti>();
         vastausKortit = new ArrayList<Kortti>();
-        int i=1;
+        int i = 1;
         while (i < 11) {
             this.kysymysKortit.add(new Kortti(kertoja, i, 1));
             this.vastausKortit.add(new Kortti(kertoja, i, 0));
@@ -44,7 +44,15 @@ public class Pelilauta {
         return this.kysymysKortit;
     }
 //Lisää ehto : älä käännä, jos joku käännetty. Älä käännä, jos ei ole kysymysten vuoro.
+
     public void valitseKysymyskortti(int i) {
+        if (i < 0 || i > 9) {
+            System.out.println("Ei kelpaa!");
+            return;
+        }
+        if (this.kysymysKortit.get(i).onkoLoydetty()) {
+            return;
+        }
         for (Kortti kortti : this.kysymysKortit) {
             if (kortti.onkoKaannetty()) {
                 System.out.println("ei voi kääntää");
@@ -53,8 +61,15 @@ public class Pelilauta {
         }
         this.kysymysKortit.get(i).kaanna();
     }
-//Lisää ehto:älä käännä, jos löydetty
+
     public void valitseVastauskortti(int i) {
+        if (i < 0 || i > 9) {
+            System.out.println("Ei kelpaa!");
+            return;
+        }
+        if (this.vastausKortit.get(i).onkoLoydetty()) {
+            return;
+        }
         for (Kortti kortti : this.vastausKortit) {
             if (kortti.onkoKaannetty()) {
                 System.out.println("ei voi kääntää");
@@ -63,7 +78,7 @@ public class Pelilauta {
         this.vastausKortit.get(i).kaanna();
     }
 
-    public boolean OnkoPari(int v1,int v2) {
+    public boolean OnkoPari(int v1, int v2) {
         if (this.kysymysKortit.get(v1).getKerrottava() == this.vastausKortit.get(v2).getKerrottava()) {
             return true;
         }

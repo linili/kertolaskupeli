@@ -57,4 +57,55 @@ public class PelilautaTest {
          
          assertEquals(10, p.getVastaukset().size());
      }
+     
+     @Test
+     public void kaantaaOikeanKysymyskortin() {
+         p.valitseKysymyskortti(4);
+         assertEquals(p.getKysymykset().get(4).onkoKaannetty(),true);
+     }
+     @Test
+     public void eiKaannaJosKysymyskorttiKaannetty() {
+         p.valitseKysymyskortti(4);
+         p.valitseKysymyskortti(3);
+         assertEquals(p.getKysymykset().get(3).onkoKaannetty(),false);
+     }
+     @Test
+     public void eiKaannaJosVastauskorttiKaannetty() {
+         p.valitseVastauskortti(4);
+         p.valitseVastauskortti(3);
+         assertEquals(p.getKysymykset().get(3).onkoKaannetty(),false);
+     }
+     @Test
+     public void eiKaannaJosKysymyskorttiLoydetty() {
+         p.getKysymykset().get(3).poistaPoydalta();
+         p.valitseKysymyskortti(3);
+         assertEquals(p.getKysymykset().get(3).onkoKaannetty(),false);
+     }
+     @Test
+     public void eiKaannaJosVastauskorttiLoydetty() {
+         p.getVastaukset().get(3).poistaPoydalta();
+         p.valitseVastauskortti(3);
+         assertEquals(p.getVastaukset().get(3).onkoKaannetty(),false);
+     }
+     
+     @Test
+     public void kaantaaOikeanVastaukortin() {
+         p.valitseVastauskortti(4);
+         assertEquals(p.getVastaukset().get(4).onkoKaannetty(),true);
+     }
+     
+     @Test
+     public void PiilottaakoKortit() {
+         p.piilotaKortit(0, 1);
+         assertEquals(p.getKysymykset().get(0).onkoKaannetty(), false);
+         assertEquals(p.getVastaukset().get(1).onkoKaannetty(), false);
+     }
+     @Test
+     public void PoistaakoKortit() {
+         p.poistaKortit(0, 1);
+         assertEquals(p.getKysymykset().get(0).onkoLoydetty(), true);
+         assertEquals(p.getVastaukset().get(1).onkoLoydetty(), true);
+     }
+     
+     
 }
