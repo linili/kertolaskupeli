@@ -43,16 +43,17 @@ public class Pelilauta {
     public ArrayList<Kortti> getKysymykset() {
         return this.kysymysKortit;
     }
-
+//Lisää ehto : älä käännä, jos joku käännetty. Älä käännä, jos ei ole kysymysten vuoro.
     public void valitseKysymyskortti(int i) {
         for (Kortti kortti : this.kysymysKortit) {
             if (kortti.onkoKaannetty()) {
                 System.out.println("ei voi kääntää");
+                return;
             }
         }
         this.kysymysKortit.get(i).kaanna();
     }
-
+//Lisää ehto:älä käännä, jos löydetty
     public void valitseVastauskortti(int i) {
         for (Kortti kortti : this.vastausKortit) {
             if (kortti.onkoKaannetty()) {
@@ -62,22 +63,25 @@ public class Pelilauta {
         this.vastausKortit.get(i).kaanna();
     }
 
-    public boolean OnkoPari() {
-        Kortti valittu1 = null;
-        Kortti valittu2 = null;
-        for (Kortti kk : this.kysymysKortit) {
-            if (kk.onkoKaannetty()) {
-                valittu1 = kk;
-            }
-        }
-        for (Kortti kv : this.vastausKortit) {
-            if (kv.onkoKaannetty()) {
-                valittu2 = kv;
-            }
-        }
-        if (valittu1.getKerrottava() == valittu2.getKerrottava()) {
+    public boolean OnkoPari(int v1,int v2) {
+        if (this.kysymysKortit.get(v1).getKerrottava() == this.vastausKortit.get(v2).getKerrottava()) {
             return true;
         }
+//        Kortti valittu1 = null;
+//        Kortti valittu2 = null;
+//        for (Kortti kk : this.kysymysKortit) {
+//            if (kk.onkoKaannetty()) {
+//                valittu1 = kk;
+//            }
+//        }
+//        for (Kortti kv : this.vastausKortit) {
+//            if (kv.onkoKaannetty()) {
+//                valittu2 = kv;
+//            }
+//        }
+//        if (valittu1.getKerrottava() == valittu2.getKerrottava()) {
+//            return true;
+//        }
         return false;
     }
 

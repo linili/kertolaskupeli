@@ -45,6 +45,7 @@ public class Kortti {
 
     public void poistaPoydalta() {
         loydetty = true;
+        this.kaannetty = false;
     }
 
     public void piiloon() {
@@ -62,7 +63,7 @@ public class Kortti {
     @Override
     public String toString() {
        
-        if (this.kaannetty) {
+        if (this.kaannetty || this.loydetty) {
 
             if (this.tyyppi == 0) {
                 return Integer.toString(this.kerrottava * this.kertoja);
