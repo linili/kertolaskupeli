@@ -170,6 +170,12 @@ public class PelilautaTest {
         assertEquals(p.getKysymykset().get(2).toString(), "XXX");
         
         }
+    @Test
+    public void piilottaakoKortit() {
+        p.piilotaKortit(2, 3);
+        assertEquals(p.getKysymykset().get(2).onkoKaannetty(), false);
+        assertEquals(p.getVastaukset().get(3).onkoKaannetty(), false);
+    }
     }
 
 

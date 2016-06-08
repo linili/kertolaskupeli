@@ -6,12 +6,13 @@
 package liisanmuistipeli.kertolaskumuistipeli.objektit;
 
 import java.util.*;
+import javax.swing.JButton;
 
 /**
  *
  * @author liisapauliina
  */
-public class Kortti {
+public class Kortti extends JButton {
 
     private boolean loydetty;
     private boolean kaannetty;
