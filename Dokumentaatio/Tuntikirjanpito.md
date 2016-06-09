@@ -8,3 +8,4 @@ Päivä | Tunnit | Kuvaus
 02.6.2016 | 8h | Tekstikäyttöliittymän tekoa, raporttien generointia, testejä.
 06.6.2016 | 4h | Lisää testejä, graafisen käyttöliittymän tekoa
 08.6.2016 | 6h | Graafisen käyttöliittymän tekoa
+09.6.2016 | 5h | Graafisen käyttiksen ja logiikan kanssa taistelua 
