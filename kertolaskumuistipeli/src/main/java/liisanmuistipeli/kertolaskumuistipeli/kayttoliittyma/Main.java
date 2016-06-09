@@ -24,10 +24,10 @@ public class Main {
         ArrayList<Kortti> vastaukset = new ArrayList<>();
         vastaukset.add(new Kortti(2,2,0));
         vastaukset.add(new Kortti(3,2,0));
-        Aloitusvalikko valikko = new Aloitusvalikko();
-        valikko.run();
-      //   GraafinenKayttoliittyma kl = new GraafinenKayttoliittyma(kyssarit, vastaukset);
-      //   kl.run();
+       // Aloitusvalikko valikko = new Aloitusvalikko();
+       // valikko.run();
+         GraafinenKayttoliittyma kl = new GraafinenKayttoliittyma();
+         kl.run();
        // Peli peli = new Peli();
        // peli.kaynnista();
     }

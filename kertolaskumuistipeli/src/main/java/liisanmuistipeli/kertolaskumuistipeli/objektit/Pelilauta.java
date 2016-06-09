@@ -63,40 +63,41 @@ public class Pelilauta {
     }
 
     public void valitseVastauskortti(int i) {
-        if (i < 0 || i > 9) {
-            System.out.println("Ei kelpaa!");
-            return;
+        if (onkoVastausKortinVuoro()) {
+            if (i < 0 || i > 9) {
+                System.out.println("Ei kelpaa!");
+                return;
+            }
+            if (this.vastausKortit.get(i).onkoLoydetty()) {
+                return;
+            }
+
+            for (Kortti kortti : this.vastausKortit) {
+                if (kortti.onkoKaannetty()) {
+                    System.out.println("ei voi kääntää");
+                    return;
+                }
+            }
+            this.vastausKortit.get(i).kaanna();
         }
-        if (this.vastausKortit.get(i).onkoLoydetty()) {
-            return;
+        else {
+            System.out.println("valitse ensin kysymyskortti");
         }
-        for (Kortti kortti : this.vastausKortit) {
-            if (kortti.onkoKaannetty()) {
-                System.out.println("ei voi kääntää");
+    }
+
+    public boolean onkoVastausKortinVuoro() {
+        for (Kortti k : this.kysymysKortit) {
+            if (k.onkoKaannetty()) {
+                return true;
             }
         }
-        this.vastausKortit.get(i).kaanna();
+        return false;
     }
 
     public boolean onkoPari(int v1, int v2) {
         if (this.kysymysKortit.get(v1).getKerrottava() == this.vastausKortit.get(v2).getKerrottava()) {
             return true;
         }
-//        Kortti valittu1 = null;
-//        Kortti valittu2 = null;
-//        for (Kortti kk : this.kysymysKortit) {
-//            if (kk.onkoKaannetty()) {
-//                valittu1 = kk;
-//            }
-//        }
-//        for (Kortti kv : this.vastausKortit) {
-//            if (kv.onkoKaannetty()) {
-//                valittu2 = kv;
-//            }
-//        }
-//        if (valittu1.getKerrottava() == valittu2.getKerrottava()) {
-//            return true;
-//        }
         return false;
     }
 
@@ -136,8 +137,50 @@ public class Pelilauta {
         this.vastausKortit.get(v2).piiloon();
     }
 
+    public void piilotaKortit(Kortti kk, Kortti kv) {
+        kk.piiloon();
+        kv.piiloon();
+    }
+
     public void poistaKortit(int v1, int v2) {
         this.kysymysKortit.get(v1).poistaPoydalta();
         this.vastausKortit.get(v2).poistaPoydalta();
+    }
+
+    public void poistaKortit(Kortti kk, Kortti kv) {
+        kk.poistaPoydalta();
+        kv.poistaPoydalta();
+    }
+
+    public void valitse(Kortti k) {
+        if (k.getTyyppi() == 1) {
+            this.valitseKysymyskortti(this.getKysymykset().indexOf(k));
+        } else {
+            this.valitseVastauskortti(this.getVastaukset().indexOf(k));
+            tarkistaOnkoPari();
+
+        }
+
+    }
+
+    public void tarkistaOnkoPari() {
+        Kortti valittu1 = null;
+        Kortti valittu2 = null;
+        for (Kortti kk : this.kysymysKortit) {
+            if (kk.onkoKaannetty()) {
+                valittu1 = kk;
+            }
+        }
+        for (Kortti kv : this.vastausKortit) {
+            if (kv.onkoKaannetty()) {
+                valittu2 = kv;
+            }
+        }
+        if (valittu1.getKerrottava() == valittu2.getKerrottava()) {
+            this.poistaKortit(valittu1, valittu2);
+        } else {
+            this.piilotaKortit(valittu1, valittu2);
+        }
+
     }
 }
