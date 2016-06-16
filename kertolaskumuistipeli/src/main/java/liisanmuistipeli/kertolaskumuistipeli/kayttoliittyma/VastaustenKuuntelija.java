@@ -35,7 +35,7 @@ public class VastaustenKuuntelija implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (this.logiikka.SaakoJoKaantaa()) {
+        if (this.logiikka.saakoJoKaantaa()) {
             this.logiikka.valitseVastauskortti(this.paikka);
             this.logiikka.setSaakoJoKaantaa(false);
             this.kali.paivitaKortit();
@@ -50,7 +50,7 @@ public class VastaustenKuuntelija implements ActionListener {
             this.logiikka.poistaKortit(this.logiikka.getKaannettyKysymysKortti(), this.logiikka.getKaannettyVastausKortti());
             if (!this.logiikka.onkoKaikkiLoydetty()) {
                 this.logiikka.setSaakoJoKaantaa(true);
-            } 
+            }
 //                else {
 //                 this.kali.peliLoppui();
 //            }

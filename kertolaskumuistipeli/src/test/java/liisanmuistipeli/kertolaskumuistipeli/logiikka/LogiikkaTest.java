@@ -203,7 +203,7 @@ public class LogiikkaTest {
     }
     @Test
     public void saakoKaantaaAlussa() {
-        assertEquals(this.logiikka.SaakoJoKaantaa(), true);
+        assertEquals(this.logiikka.saakoJoKaantaa(), true);
     }
     @Test
     public void onkoKysymystenVuoroAlussa() {

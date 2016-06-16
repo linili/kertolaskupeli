@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2016</copyright>
     <item>
-      <title>File: 4,
+      <title>File: 12,
              Errors: 0,
              Warnings: 0,
              Infos: 0
@@ -46,7 +46,7 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#liisanmuistipeli.kertolaskumuistipeli.objektit.Pelilauta.java">liisanmuistipeli/kertolaskumuistipeli/objektit/Pelilauta.java</a>
+                  <a href="${project.url}/checkstyle.html#liisanmuistipeli.kertolaskumuistipeli.kayttoliittyma.VastaustenKuuntelija.java">liisanmuistipeli/kertolaskumuistipeli/kayttoliittyma/VastaustenKuuntelija.java</a>
                 </td>
                 <td>
                   0
@@ -60,7 +60,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#liisanmuistipeli.kertolaskumuistipeli.objektit.Kortti.java">liisanmuistipeli/kertolaskumuistipeli/objektit/Kortti.java</a>
+                  <a href="${project.url}/checkstyle.html#liisanmuistipeli.kertolaskumuistipeli.kayttoliittyma.PelinAloittaja.java">liisanmuistipeli/kertolaskumuistipeli/kayttoliittyma/PelinAloittaja.java</a>
                 </td>
                 <td>
                   0
@@ -88,7 +88,119 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#liisanmuistipeli.kertolaskumuistipeli.kayttoliittyma.Peli.java">liisanmuistipeli/kertolaskumuistipeli/kayttoliittyma/Peli.java</a>
+                  <a href="${project.url}/checkstyle.html#liisanmuistipeli.kertolaskumuistipeli.kayttoliittyma.KysymystenKuuntelija.java">liisanmuistipeli/kertolaskumuistipeli/kayttoliittyma/KysymystenKuuntelija.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#liisanmuistipeli.kertolaskumuistipeli.kayttoliittyma.Ajastin.java">liisanmuistipeli/kertolaskumuistipeli/kayttoliittyma/Ajastin.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#liisanmuistipeli.kertolaskumuistipeli.kayttoliittyma.GraafinenKayttoliittyma.java">liisanmuistipeli/kertolaskumuistipeli/kayttoliittyma/GraafinenKayttoliittyma.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#liisanmuistipeli.kertolaskumuistipeli.logiikka.KorttienArpoja.java">liisanmuistipeli/kertolaskumuistipeli/logiikka/KorttienArpoja.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#liisanmuistipeli.kertolaskumuistipeli.logiikka.Logiikka.java">liisanmuistipeli/kertolaskumuistipeli/logiikka/Logiikka.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#liisanmuistipeli.kertolaskumuistipeli.logiikka.Pelitilanne.java">liisanmuistipeli/kertolaskumuistipeli/logiikka/Pelitilanne.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#liisanmuistipeli.kertolaskumuistipeli.kayttoliittyma.VaihtoehtoinenAloitusvalikko.java">liisanmuistipeli/kertolaskumuistipeli/kayttoliittyma/VaihtoehtoinenAloitusvalikko.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#liisanmuistipeli.kertolaskumuistipeli.kayttoliittyma.Aloitusvalikko.java">liisanmuistipeli/kertolaskumuistipeli/kayttoliittyma/Aloitusvalikko.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#liisanmuistipeli.kertolaskumuistipeli.logiikka.Kortti.java">liisanmuistipeli/kertolaskumuistipeli/logiikka/Kortti.java</a>
                 </td>
                 <td>
                   0

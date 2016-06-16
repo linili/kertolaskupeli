@@ -89,14 +89,14 @@ public class GraafinenKayttoliittyma extends JPanel {
     }
 
     public void paivitaKortit() {
-        
+
         for (int i = 0; i < this.kysymysnapit.size(); i++) {
             kysymysnapit.get(i).setText(this.peli.getKysymykset().get(i).toString());
         }
         for (int i = 0; i < this.vastausnapit.size(); i++) {
             vastausnapit.get(i).setText(this.peli.getVastaukset().get(i).toString());
         }
-        
+
     }
 
     public Logiikka getLogiikka() {

@@ -17,8 +17,8 @@ public class VaihtoehtoinenAloitusvalikko {
         String vastaus = "o";
         String vastattu;
         boolean vastausKelpaa = false;
-        while(!vastausKelpaa) {
-            try{
+        while (!vastausKelpaa) {
+            try {
                 vastattu = JOptionPane.showInputDialog(kysymys);
                 vastaus = vastattu;
                 vastausKelpaa = true;
@@ -42,5 +42,5 @@ public class VaihtoehtoinenAloitusvalikko {
         }
         return luku;
     }
-    
+
 }

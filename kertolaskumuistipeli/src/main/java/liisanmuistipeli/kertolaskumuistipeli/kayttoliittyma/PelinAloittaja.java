@@ -36,6 +36,7 @@ public class PelinAloittaja {
         this.kali = new GraafinenKayttoliittyma(this.logiikka);
         this.kali.run();
     }
+
     public Logiikka getLogiikka() {
         return this.logiikka;
     }

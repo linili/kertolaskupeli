@@ -36,7 +36,6 @@ import javax.swing.WindowConstants;
 //        frame.pack();
 //        frame.setVisible(true);
 //    }
-
 //    private void lisaaKomponentit(Container container) {
 //        this.c = container;
 //        Kuuntelija kuuntelija = new Kuuntelija();

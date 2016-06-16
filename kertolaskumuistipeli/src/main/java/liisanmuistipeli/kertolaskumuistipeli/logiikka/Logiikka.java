@@ -24,7 +24,7 @@ public class Logiikka {
 
     }
 
-    public boolean SaakoJoKaantaa() {
+    public boolean saakoJoKaantaa() {
         return saakoJoKaantaa;
     }
 

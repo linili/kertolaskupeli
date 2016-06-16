@@ -31,7 +31,7 @@ public class KysymystenKuuntelija implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (this.logiikka.SaakoJoKaantaa()) {
+        if (this.logiikka.saakoJoKaantaa()) {
             this.logiikka.valitseKysymyskortti(this.paikka);
             this.kali.paivitaKortit();
         }

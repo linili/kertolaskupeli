@@ -18,7 +18,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+
         PelinAloittaja aloittaja = new PelinAloittaja();
         aloittaja.teeUusiPeli(aloittaja.kysyKertoja());
 //        ArrayList<Kortti> kyssarit = new ArrayList<>();
@@ -27,12 +27,12 @@ public class Main {
 //        ArrayList<Kortti> vastaukset = new ArrayList<>();
 //        vastaukset.add(new Kortti(2,2,0));
 //        vastaukset.add(new Kortti(3,2,0));
-       // Aloitusvalikko valikko = new Aloitusvalikko();
-       // valikko.run();
-      //   GraafinenKayttoliittyma kl = new GraafinenKayttoliittyma();
-      //   kl.run();
-       // Peli peli = new Peli();
-       // peli.kaynnista();
+        // Aloitusvalikko valikko = new Aloitusvalikko();
+        // valikko.run();
+        //   GraafinenKayttoliittyma kl = new GraafinenKayttoliittyma();
+        //   kl.run();
+        // Peli peli = new Peli();
+        // peli.kaynnista();
     }
-    
+
 }
