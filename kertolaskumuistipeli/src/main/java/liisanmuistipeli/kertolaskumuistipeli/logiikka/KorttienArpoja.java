@@ -10,24 +10,39 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- *Luokka luo muistipeliin kortit ja sekoittaa ne. Luokasta käsin voidaan myös luoda uusi pelitilanne arvotuilla korteilla.
+ * Luokka luo muistipeliin kortit ja sekoittaa ne. Luokasta käsin voidaan myös
+ * luoda uusi pelitilanne arvotuilla korteilla.
+ *
  * @author liisapauliina
  */
 public class KorttienArpoja {
+
     private Pelitilanne peli;
     private int kertoja;
     private ArrayList<Kortti> kysymysKortit;
     private ArrayList<Kortti> vastausKortit;
+
     /**
      * Konstuktorissa alustetaan ArrayListit.
      */
     public KorttienArpoja() {
-        this.kysymysKortit = new ArrayList<Kortti>();
-        this.vastausKortit = new ArrayList<Kortti>();
+
     }
+
+    public ArrayList<Kortti> getKysymykset() {
+        return this.kysymysKortit;
+    }
+
+    public ArrayList<Kortti> getVastaukset() {
+        return this.vastausKortit;
+    }
+
     /**
-     * Metodi luo kysymys- ja vastauskortit kysytylle kertojalle ja sekoittaa ne.
-     * @param kertoja on pelaajalta kysytty luku eli kertotaulu, jota halutaan harjoitella. 
+     * Metodi luo kysymys- ja vastauskortit kysytylle kertojalle ja sekoittaa
+     * ne.
+     *
+     * @param kertoja on pelaajalta kysytty luku eli kertotaulu, jota halutaan
+     * harjoitella.
      */
     public void arvoKortit(int kertoja) {
         this.kertoja = kertoja;
@@ -40,13 +55,16 @@ public class KorttienArpoja {
         Collections.shuffle(this.kysymysKortit);
         Collections.shuffle(this.vastausKortit);
     }
+
     /**
      * Metodi luo uuden Pelitilanteen.
-     * @return palauttaa Pelitilanteen arvotuilla korteilla. 
+     *
+     * @return palauttaa Pelitilanteen arvotuilla korteilla.
      */
-    public Pelitilanne luoSatunnainenPelitilanne() {
-        //huom tähän alustus
-     //   this.kysymysKortit = new ArrayList<Kortti>();
+    public Pelitilanne luoSatunnainenPelitilanne(int kertoja) {
+        this.kysymysKortit = new ArrayList<Kortti>();
+        this.vastausKortit = new ArrayList<Kortti>();
+        arvoKortit(kertoja);
         this.peli = new Pelitilanne(this.kertoja, this.kysymysKortit, this.vastausKortit);
         return this.peli;
     }

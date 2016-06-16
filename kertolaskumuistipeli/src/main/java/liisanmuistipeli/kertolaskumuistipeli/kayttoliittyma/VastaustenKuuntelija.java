@@ -19,20 +19,20 @@ import liisanmuistipeli.kertolaskumuistipeli.logiikka.Logiikka;
  * @author liisapauliina
  */
 public class VastaustenKuuntelija implements ActionListener {
-    
+
     private Logiikka logiikka;
     private int paikka;
     private GraafinenKayttoliittyma kali;
     private Ajastin ajastin;
-    
+
     public VastaustenKuuntelija(int paikka, Logiikka logiikka, GraafinenKayttoliittyma kali) {
         this.logiikka = logiikka;
         this.paikka = paikka;
         this.kali = kali;
         this.ajastin = new Ajastin(2000, kali);
-        
+
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (this.logiikka.SaakoJoKaantaa()) {
@@ -48,7 +48,12 @@ public class VastaustenKuuntelija implements ActionListener {
             this.ajastin.start();
         } else {
             this.logiikka.poistaKortit(this.logiikka.getKaannettyKysymysKortti(), this.logiikka.getKaannettyVastausKortti());
-            this.logiikka.setSaakoJoKaantaa(true);
+            if (!this.logiikka.onkoKaikkiLoydetty()) {
+                this.logiikka.setSaakoJoKaantaa(true);
+            } 
+//                else {
+//                 this.kali.peliLoppui();
+//            }
         }
     }
 }

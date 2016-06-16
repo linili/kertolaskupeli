@@ -126,13 +126,10 @@ public class Logiikka {
 //                }
 //            }
             if (this.peli.getKysymykset().get(paikka).onkoLoydetty()) {
-                System.out.println("tämä kortti on jo löydetty");
                 return;
             }
             this.peli.getKysymykset().get(paikka).nayta();
             this.onkoKysymystenVuoro = false;
-        } else {
-            System.out.println("valitse vastauskortti");
         }
     }
 
@@ -145,14 +142,10 @@ public class Logiikka {
 //                }
 //            }
             if (this.peli.getVastaukset().get(i).onkoLoydetty()) {
-                System.out.println("tämä kortti on jo löydetty");
                 return;
             }
             this.peli.getVastaukset().get(i).nayta();
-            System.out.println(this.peli.getVastaukset().get(i));
             this.onkoKysymystenVuoro = true;
-        } else {
-            System.out.println("valitse kysymyskortti");
         }
     }
 

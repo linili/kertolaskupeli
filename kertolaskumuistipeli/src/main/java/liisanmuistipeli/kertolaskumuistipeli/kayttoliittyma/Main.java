@@ -20,9 +20,7 @@ public class Main {
     public static void main(String[] args) {
         
         PelinAloittaja aloittaja = new PelinAloittaja();
-        aloittaja.teePeli(aloittaja.kysyKertoja());
-        GraafinenKayttoliittyma kali = new GraafinenKayttoliittyma(aloittaja.getLogiikka());
-        kali.run();
+        aloittaja.teeUusiPeli(aloittaja.kysyKertoja());
 //        ArrayList<Kortti> kyssarit = new ArrayList<>();
 //        kyssarit.add(new Kortti(4,3,1));
 //        kyssarit.add(new Kortti (4,5,1));

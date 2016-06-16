@@ -14,7 +14,18 @@ import javax.swing.*;
 public class VaihtoehtoinenAloitusvalikko {
 
     public static String kysy(String kysymys) {
-        return JOptionPane.showInputDialog(kysymys);
+        String vastaus = "o";
+        String vastattu;
+        boolean vastausKelpaa = false;
+        while(!vastausKelpaa) {
+            try{
+                vastattu = JOptionPane.showInputDialog(kysymys);
+                vastaus = vastattu;
+                vastausKelpaa = true;
+            } catch (Exception e) {
+            }
+        }
+        return vastaus;
     }
 
     public static int kysyKertoja(String kysymys) {

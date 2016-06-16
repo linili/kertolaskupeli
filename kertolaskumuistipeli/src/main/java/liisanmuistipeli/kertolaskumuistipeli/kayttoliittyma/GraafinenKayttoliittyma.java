@@ -102,7 +102,15 @@ public class GraafinenKayttoliittyma extends JPanel {
     public Logiikka getLogiikka() {
         return logiikka;
     }
-    
-    
 
+//    public void peliLoppui() {
+//        String mitaTehdaan = VaihtoehtoinenAloitusvalikko.kysy("Haluatko uuden pelin? K = Kyllä, E = En");
+//        while (mitaTehdaan!= "K" && mitaTehdaan!= "E") {
+//            mitaTehdaan = VaihtoehtoinenAloitusvalikko.kysy("Haluatko uuden pelin? K = Kyllä, E = En");
+//        }
+//        if (mitaTehdaan == "K") {
+//            PelinAloittaja aloittaja = new PelinAloittaja();
+//            aloittaja.teeUusiPeli(aloittaja.kysyKertoja());
+//        } 
+//    }
 }

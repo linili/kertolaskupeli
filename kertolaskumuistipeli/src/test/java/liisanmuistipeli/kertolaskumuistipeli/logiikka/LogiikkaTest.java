@@ -5,8 +5,7 @@
  */
 package liisanmuistipeli.kertolaskumuistipeli.logiikka;
 
-import liisanmuistipeli.kertolaskumuistipeli.objektit.Kortti;
-import liisanmuistipeli.kertolaskumuistipeli.objektit.Pelitilanne;
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -19,149 +18,200 @@ import static org.junit.Assert.*;
  * @author liisapauliina
  */
 public class LogiikkaTest {
+
     Logiikka logiikka;
     Pelitilanne peli;
-    
+
     public LogiikkaTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
-        this.peli = new Pelitilanne(6);
+        ArrayList<Kortti> kysymykset = new ArrayList<>();
+        ArrayList<Kortti> vastaukset = new ArrayList<>();
+        kysymykset.add(new Kortti(5, 5, 1));
+        kysymykset.add(new Kortti(5, 4, 1));
+        vastaukset.add(new Kortti(5, 5, 0));
+        vastaukset.add(new Kortti(5, 4, 0));
+        this.peli = new Pelitilanne(5, kysymykset, vastaukset);
         this.logiikka = new Logiikka(this.peli);
     }
-    
+
     @After
     public void tearDown() {
     }
 
     @Test
     public void kaantaaOikeanKysymyskortin() {
-        logiikka.valitsekortti(this.peli.getKysymykset().get(0));
+        logiikka.valitseKysymyskortti(0);
         assertEquals(this.peli.getKysymykset().get(0).onkoKaannetty(), true);
     }
 
-//    @Test
-//    public void eiKaannaJosKysymyskorttiKaannetty() {
-//        p.valitseKysymyskortti(4);
-//        p.valitseKysymyskortti(3);
-//        assertEquals(p.getKysymykset().get(3).onkoKaannetty(), false);
-//    }
-//
-//    @Test
-//    public void eiKaannaJosVastauskorttiKaannetty() {
-//        p.valitseVastauskortti(4);
-//        p.valitseVastauskortti(3);
-//        assertEquals(p.getKysymykset().get(3).onkoKaannetty(), false);
-//    }
-//
-//    @Test
-//    public void eiKaannaJosKysymyskorttiLoydetty() {
-//        p.getKysymykset().get(3).poistaPoydalta();
-//        p.valitseKysymyskortti(3);
-//        assertEquals(p.getKysymykset().get(3).onkoKaannetty(), false);
-//    }
-//
-//    @Test
-//    public void eiKaannaJosVastauskorttiLoydetty() {
-//        p.getVastaukset().get(3).poistaPoydalta();
-//        p.valitseVastauskortti(3);
-//        assertEquals(p.getVastaukset().get(3).onkoKaannetty(), false);
-//    }
-//
-//    @Test
-//    public void kaantaaOikeanVastaukortin() {
-//        p.valitseVastauskortti(4);
-//        assertEquals(p.getVastaukset().get(4).onkoKaannetty(), true);
-//    }
-//
-//    @Test
-//    public void PiilottaakoKortit() {
-//        p.piilotaKortit(0, 1);
-//        assertEquals(p.getKysymykset().get(0).onkoKaannetty(), false);
-//        assertEquals(p.getVastaukset().get(1).onkoKaannetty(), false);
-//    }
-//
-//    @Test
-//    public void PoistaakoKortit() {
-//        p.poistaKortit(0, 1);
-//        assertEquals(p.getKysymykset().get(0).onkoLoydetty(), true);
-//        assertEquals(p.getVastaukset().get(1).onkoLoydetty(), true);
-//    }
-//
-//    @Test
-//    public void eiKaannaVaarallaIndeksillaKysymysKorttia() {
-//        p.valitseKysymyskortti(11);
-//        p.valitseKysymyskortti(6);
-//        assertEquals(p.getKysymykset().get(6).onkoKaannetty(), true);
-//    }
-//
-//    @Test
-//    public void eiKaannaVaarallaIndeksillaVastausKorttia() {
-//        p.valitseVastauskortti(11);
-//        p.valitseVastauskortti(6);
-//        assertEquals(p.getVastaukset().get(6).onkoKaannetty(), true);
-//    }
-//
-//    @Test
-//    public void parittaaOikein() {
-//        int i = p.getKysymykset().get(0).getKerrottava();
-//        int laskuri = 0;
-//        for (Kortti k : p.getVastaukset()) {
-//
-//            if (k.getKerrottava() == i) {
-//                assertEquals(p.onkoPari(0, laskuri), true);
-//            } else {
-//                assertEquals(p.onkoPari(0, laskuri), false);
-//            }
-//            laskuri++;
-//        }
-//    }
-//
-//    @Test
-//    public void jatkaakoKunYksiLoydetty() {
-//        for (int i = 0; i < 10; i++) {
-//            if (p.onkoPari(0, i)) {
-//                assertEquals(p.jatkuu(), true);
-//            }
-//        }
-//    }
-//    
-//    @Test
-//    public void jatkaakoKunKaikkiLoydetty() {
-//        for (Kortti k : p.getKysymykset()) {
-//        k.poistaPoydalta();
-//        }
-//        for (Kortti kv : p.getVastaukset()) {
-//            kv.poistaPoydalta();
-//        }
-//        assertEquals(p.jatkuu(), false);
-//    }
-//    @Test
-//    public void tulostaakoOikein() {
-//        p.getKysymykset().get(1).kaanna();
-//        String tulostus = Integer.toString(p.getKysymykset().get(1).getKertoja())+ "x" + Integer.toString(p.getKysymykset().get(1).getKerrottava());
-//        assertEquals(p.getKysymykset().get(1).toString(), tulostus);
-//        
-//        assertEquals(p.getVastaukset().get(2).toString(), "XXX");
-//        assertEquals(p.getKysymykset().get(2).toString(), "XXX");
-//        
-//        }
-//    @Test
-//    public void piilottaakoKortit() {
-//        p.piilotaKortit(2, 3);
-//        assertEquals(p.getKysymykset().get(2).onkoKaannetty(), false);
-//        assertEquals(p.getVastaukset().get(3).onkoKaannetty(), false);
-//    }
-//    }
+    @Test
+    public void eiKaannaJosKysymyskorttiKaannetty() {
+        this.logiikka.valitseKysymyskortti(0);
+        this.logiikka.valitseKysymyskortti(1);
+        assertEquals(this.logiikka.getPelitilanne().getKysymykset().get(1).onkoKaannetty(), false);
+    }
 
+    @Test
+    public void eiKaannaJosVastauskorttiKaannetty() {
+        this.logiikka.valitseVastauskortti(0);
+        this.logiikka.valitseVastauskortti(1);
+        assertEquals(this.logiikka.getPelitilanne().getKysymykset().get(1).onkoKaannetty(), false);
+    }
 
+    @Test
+    public void eiKaannaJosKysymyskorttiLoydetty() {
+        this.logiikka.getPelitilanne().getKysymykset().get(1).poistaPoydalta();
+        this.logiikka.valitseKysymyskortti(1);
+        assertEquals(this.logiikka.getPelitilanne().getKysymykset().get(1).onkoKaannetty(), false);
+    }
+
+    @Test
+    public void eiKaannaJosVastauskorttiLoydetty() {
+        this.logiikka.getPelitilanne().getVastaukset().get(1).poistaPoydalta();
+        this.logiikka.valitseVastauskortti(1);
+        assertEquals(this.logiikka.getPelitilanne().getVastaukset().get(1).onkoKaannetty(), false);
+    }
+
+    @Test
+    public void kaantaaOikeanVastaukortin() {
+        this.logiikka.valitseKysymyskortti(0);
+        this.logiikka.valitseVastauskortti(1);
+        assertEquals(this.peli.getVastaukset().get(1).onkoKaannetty(), true);
+    }
+
+    @Test
+    public void PiilottaakoKortit() {
+        this.logiikka.valitseKysymyskortti(0);
+        this.logiikka.valitseVastauskortti(1);
+        this.logiikka.piilotaKortit(this.peli.getKysymykset().get(0), this.peli.getVastaukset().get(1));
+        assertEquals(this.peli.getKysymykset().get(0).onkoKaannetty(), false);
+        assertEquals(this.peli.getVastaukset().get(1).onkoKaannetty(), false);
+    }
+
+    @Test
+    public void PoistaakoKortit() {
+        this.logiikka.valitseKysymyskortti(1);
+        this.logiikka.valitseVastauskortti(1);
+        this.logiikka.poistaKortit(this.peli.getKysymykset().get(1), this.peli.getVastaukset().get(1));
+        assertEquals(this.peli.getKysymykset().get(1).onkoLoydetty(), true);
+        assertEquals(this.peli.getVastaukset().get(1).onkoLoydetty(), true);
+    }
+
+    @Test
+    public void parittaaOikein() {
+        this.logiikka.valitseKysymyskortti(0);
+        this.logiikka.valitseVastauskortti(0);
+        assertEquals(this.logiikka.onkoPari(this.peli.getKysymykset().get(0), this.peli.getVastaukset().get(0)), true);
+    }
+
+    @Test
+    public void eiParitaKunEiPari() {
+        this.logiikka.valitseKysymyskortti(0);
+        this.logiikka.valitseVastauskortti(1);
+        assertEquals(this.logiikka.onkoPari(this.peli.getKysymykset().get(0), this.peli.getVastaukset().get(1)), false);
+
+    }
+
+    @Test
+    public void jatkaakoKunYksiLoydetty() {
+        this.peli.getKysymykset().get(0).poistaPoydalta();
+        this.peli.getVastaukset().get(0).poistaPoydalta();
+        assertEquals(this.logiikka.jatkuu(), true);
+    }
+
+    @Test
+    public void jatkaakoKunKaikkiLoydetty() {
+        for (Kortti k : this.peli.getKysymykset()) {
+            k.poistaPoydalta();
+        }
+        for (Kortti kv : this.peli.getVastaukset()) {
+            kv.poistaPoydalta();
+        }
+        assertEquals(this.logiikka.jatkuu(), false);
+    }
+
+    @Test
+    public void tulostaakoOikeinNaytettavan() {
+        this.peli.getKysymykset().get(1).nayta();
+        String tulostus = Integer.toString(this.peli.getKysymykset().get(1).getKertoja()) + "x" + Integer.toString(this.peli.getKysymykset().get(1).getKerrottava());
+        assertEquals(this.peli.getKysymykset().get(1).toString(), tulostus);
+    }
+
+    @Test
+    public void tulostaakoOikeinPiilotetun() {
+        this.peli.getVastaukset().get(0).piiloon();
+        assertEquals(this.peli.getVastaukset().get(0).toString(), "XXX");
+
+    }
+
+    @Test
+    public void loytaakoKaannetynKysymyskortin() {
+        this.logiikka.valitseKysymyskortti(0);
+        assertEquals(this.logiikka.getKaannettyKysymysKortti(), this.peli.getKysymykset().get(0));
+    }
+
+    @Test
+    public void palauttaaTyhjanKunEiKaannettyaKysymysta() {
+        assertEquals(this.logiikka.getKaannettyKysymysKortti(), null);
+    }
+
+    @Test
+    public void loytaakoKaannetynVastauskortin() {
+        this.logiikka.valitseKysymyskortti(0);
+        this.logiikka.valitseVastauskortti(0);
+        assertEquals(this.logiikka.getKaannettyVastausKortti(), this.peli.getVastaukset().get(0));
+    }
+
+    @Test
+    public void palauttaaTyhjanKunEiKaannettyaVastausta() {
+        assertEquals(this.logiikka.getKaannettyVastausKortti(), null);
+    }
+
+    @Test
+    public void palauttaakkoOikeinKunKaksiKaannettya() {
+        this.logiikka.valitseKysymyskortti(0);
+        this.logiikka.valitseVastauskortti(1);
+        assertEquals(this.logiikka.onkoKaksiKaannettyna(), true);
+    }
+    @Test
+    public void palauttaakoOikeinKunYksiKaannettyna() {
+        this.logiikka.valitseKysymyskortti(1);
+        assertEquals(this.logiikka.onkoKaksiKaannettyna(), false);
+    }
+    @Test
+    public void loytaakoParin() {
+        this.logiikka.valitseKysymyskortti(0);
+        this.logiikka.valitseVastauskortti(0);
+        assertEquals(this.logiikka.loytyikoPari(), true);
+    }
+    @Test
+    public void palauttaakoOikeinKunEiParia() {
+        this.logiikka.valitseKysymyskortti(1);
+        this.logiikka.valitseVastauskortti(0);
+        assertEquals(this.logiikka.loytyikoPari(), false);
+    }
+    @Test
+    public void saakoKaantaaAlussa() {
+        assertEquals(this.logiikka.SaakoJoKaantaa(), true);
+    }
+    @Test
+    public void onkoKysymystenVuoroAlussa() {
+        assertEquals(this.logiikka.onkoKysymystenVuoro(), true);
+    }
+    @Test
+    public void onkoKysymystenVuoroKunPainettuKysymysta() {
+        this.logiikka.valitseKysymyskortti(1);
+        assertEquals(this.logiikka.onkoKysymystenVuoro(), false);
+    }
 }

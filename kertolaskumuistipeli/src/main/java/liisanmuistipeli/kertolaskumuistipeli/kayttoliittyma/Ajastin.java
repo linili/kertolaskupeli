@@ -26,12 +26,12 @@ public class Ajastin extends Timer implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (kali.getLogiikka().getKaannettyKysymysKortti()!= null && kali.getLogiikka().getKaannettyVastausKortti() != null) {
-        kali.getLogiikka().getKaannettyKysymysKortti().piiloon();
-        kali.getLogiikka().getKaannettyVastausKortti().piiloon();
-        kali.paivitaKortit();
+        if (kali.getLogiikka().getKaannettyKysymysKortti()!= null && kali.getLogiikka().getKaannettyVastausKortti()!= null) {
+            kali.getLogiikka().getKaannettyKysymysKortti().piiloon();
+            kali.getLogiikka().getKaannettyVastausKortti().piiloon();
+            kali.paivitaKortit();
+        }
         kali.getLogiikka().setSaakoJoKaantaa(true);
-    }
     }
 
 }

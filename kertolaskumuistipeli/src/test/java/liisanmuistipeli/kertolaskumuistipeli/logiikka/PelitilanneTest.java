@@ -1,10 +1,11 @@
-package liisanmuistipeli.kertolaskumuistipeli.objektit;
+package liisanmuistipeli.kertolaskumuistipeli.logiikka;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -33,7 +34,11 @@ public class PelitilanneTest {
 
     @Before
     public void setUp() {
-        p = new Pelitilanne(6);
+        ArrayList<Kortti> kysymykset = new ArrayList<>();
+        ArrayList<Kortti> vastaukset = new ArrayList<>();
+        kysymykset.add(new Kortti(2,2,1));
+        vastaukset.add(new Kortti(2,2,0));
+        this.p = new Pelitilanne(2, kysymykset, vastaukset);
     }
 
     @After
@@ -43,19 +48,19 @@ public class PelitilanneTest {
     @Test
     public void konstruktori_asettaa_kertojan() {
 
-        assertEquals(6, p.getKertoja());
+        assertEquals(2, p.getKertoja());
     }
 
     @Test
     public void konstruktori_asettaa_kysymyskortit() {
 
-        assertEquals(10, p.getKysymykset().size());
+        assertEquals(1, p.getKysymykset().size());
     }
 
     @Test
     public void konstruktori_asettaa_vastauskortit() {
 
-        assertEquals(10, p.getVastaukset().size());
+        assertEquals(1, p.getVastaukset().size());
     }
 
 }

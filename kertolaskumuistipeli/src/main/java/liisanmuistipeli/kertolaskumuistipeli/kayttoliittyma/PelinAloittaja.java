@@ -17,9 +17,9 @@ public class PelinAloittaja {
 
     private Logiikka logiikka;
     private KorttienArpoja arpoja;
+    private GraafinenKayttoliittyma kali;
 
     public PelinAloittaja() {
-        this.arpoja = new KorttienArpoja();
     }
 
     public int kysyKertoja() {
@@ -30,9 +30,11 @@ public class PelinAloittaja {
         return kertoja;
     }
 
-    public void teePeli(int kertoja) {
-        this.arpoja.arvoKortit(kertoja);
-        this.logiikka = new Logiikka(this.arpoja.luoSatunnainenPelitilanne());
+    public void teeUusiPeli(int kertoja) {
+        this.arpoja = new KorttienArpoja();
+        this.logiikka = new Logiikka(this.arpoja.luoSatunnainenPelitilanne(kertoja));
+        this.kali = new GraafinenKayttoliittyma(this.logiikka);
+        this.kali.run();
     }
     public Logiikka getLogiikka() {
         return this.logiikka;
