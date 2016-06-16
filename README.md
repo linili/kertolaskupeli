@@ -7,4 +7,4 @@ Muistipeli kertolaskujen opetteluun
 
 [pit-raportti]( https://htmlpreview.github.io/?https://github.com/linili/kertolaskupeli/blob/master/Dokumentaatio/pit-raportti/201606161539/index.html)
 
-[checkstyle-raportti] (https://htmlpreview.github.io/?https://github.com/linili/kertolaskupeli/blob/master/Dokumentaatio/checkstyle-raportti/checkstyle.html)
+[checkstyle-raportti] (https://htmlpreview.github.io/?https://github.com/linili/kertolaskupeli/blob/master/Dokumentaatio/checkstyle-raportti/site/checkstyle.html)
