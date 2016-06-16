@@ -12,3 +12,5 @@ Pelaaja
 - Kysymyskortin valitseminen
 - Vastaukortin valitseminen
 - Pelin lopettaminen
+
+![Sekvenssikaavio pelin aloitus](https://github.com/linili/kertolaskupeli/blob/master/Dokumentaatio/sekvenssikaavio_OnnistunutKysymyksenKaanto.png)
