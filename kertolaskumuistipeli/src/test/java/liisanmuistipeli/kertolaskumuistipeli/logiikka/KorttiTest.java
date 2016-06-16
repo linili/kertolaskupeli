@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package liisanmuistipeli.kertolaskumuistipeli.objektit;
+package liisanmuistipeli.kertolaskumuistipeli.logiikka;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -64,7 +64,7 @@ public class KorttiTest {
      
      @Test
      public void kaantaakoKortin() {
-         kortti.kaanna();
+         kortti.nayta();
      assertEquals(true, kortti.onkoKaannetty());
      }
      

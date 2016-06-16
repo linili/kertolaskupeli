@@ -6,7 +6,7 @@
 package liisanmuistipeli.kertolaskumuistipeli.kayttoliittyma;
 
 import java.util.ArrayList;
-import liisanmuistipeli.kertolaskumuistipeli.objektit.Kortti;
+import liisanmuistipeli.kertolaskumuistipeli.logiikka.Kortti;
 
 /**
  *
@@ -18,16 +18,21 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ArrayList<Kortti> kyssarit = new ArrayList<>();
-        kyssarit.add(new Kortti(4,3,1));
-        kyssarit.add(new Kortti (4,5,1));
-        ArrayList<Kortti> vastaukset = new ArrayList<>();
-        vastaukset.add(new Kortti(2,2,0));
-        vastaukset.add(new Kortti(3,2,0));
+        
+        PelinAloittaja aloittaja = new PelinAloittaja();
+        aloittaja.teePeli(aloittaja.kysyKertoja());
+        GraafinenKayttoliittyma kali = new GraafinenKayttoliittyma(aloittaja.getLogiikka());
+        kali.run();
+//        ArrayList<Kortti> kyssarit = new ArrayList<>();
+//        kyssarit.add(new Kortti(4,3,1));
+//        kyssarit.add(new Kortti (4,5,1));
+//        ArrayList<Kortti> vastaukset = new ArrayList<>();
+//        vastaukset.add(new Kortti(2,2,0));
+//        vastaukset.add(new Kortti(3,2,0));
        // Aloitusvalikko valikko = new Aloitusvalikko();
        // valikko.run();
-         GraafinenKayttoliittyma kl = new GraafinenKayttoliittyma();
-         kl.run();
+      //   GraafinenKayttoliittyma kl = new GraafinenKayttoliittyma();
+      //   kl.run();
        // Peli peli = new Peli();
        // peli.kaynnista();
     }

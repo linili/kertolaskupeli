@@ -31,4 +31,5 @@ public class VaihtoehtoinenAloitusvalikko {
         }
         return luku;
     }
+    
 }

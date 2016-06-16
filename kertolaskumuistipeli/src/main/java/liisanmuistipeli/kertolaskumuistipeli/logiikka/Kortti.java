@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package liisanmuistipeli.kertolaskumuistipeli.objektit;
+package liisanmuistipeli.kertolaskumuistipeli.logiikka;
 
 import java.util.*;
 import javax.swing.JButton;
@@ -12,7 +12,7 @@ import javax.swing.JButton;
  *
  * @author liisapauliina
  */
-public class Kortti extends JButton {
+public class Kortti {
 
     private boolean loydetty;
     private boolean kaannetty;
@@ -40,7 +40,7 @@ public class Kortti extends JButton {
         return this.tyyppi;
     }
 
-    public void kaanna() {
+    public void nayta() {
         kaannetty = true;
     }
 
@@ -65,8 +65,9 @@ public class Kortti extends JButton {
     public String toString() {
        
         if (this.kaannetty || this.loydetty) {
-
+         
             if (this.tyyppi == 0) {
+                
                 return Integer.toString(this.kerrottava * this.kertoja);
             }
             if (this.tyyppi == 1) {
