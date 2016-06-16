@@ -12,4 +12,4 @@ Päivä | Tunnit | Kuvaus
 13.6.2016 | 4h | Grafiikkaa, luokkakaavion pohdintaa
 14.6.2016 | 4h | Grafiikkaa ja logiikkaa, luokat uusiks
 15.6.2016 | 6h | logiikkaa ja grafiikkaa
-16.6.2016 | 7h | testejä ja ponnahdusikkunoita, sekvenssikaavioita
+16.6.2016 | 9h | testejä ja ponnahdusikkunoita, sekvenssikaavioita, luokkakaavion ja aihemäärittelyn päivitys
