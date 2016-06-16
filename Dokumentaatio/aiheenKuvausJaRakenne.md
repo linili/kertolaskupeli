@@ -1,14 +1,14 @@
 #Aihemäärittely
 **Aihe:**
-Muistipeli kertolaskujen opetteluun. Peli koostuu paloista, joissa toisissa lukee kerrottavia (esim. 8 x 4) ja toisissa vastaukset (esim. 32). Peli arpoo muistipelin paloille järjestyksen näyttämättä, mitä niissä lukee. Pelaaja valitsee paloista yhden, jonka jälkeen pala näytetään pelaajalle. Tämän jälkeen pelaaja valitsee toisen palan, joka näytetään pelaajalle. Jos palat sopivat yhteen (kerrottavat ja vastaus täsmäävät), palat jäävät näkyviin ja pelaaja saa valita uudelleen. Muussa tapauksessa pelivuoro siirtyy toiselle pelaajalle tai automaattipelaajalle.
+Muistipeli kertolaskujen opetteluun. Peli koostuu korteista, joissa toisissa lukee kertolaskuja (esim. 8 x 4) ja toisissa vastaukset (esim. 32). Peli aloitetaan kysymällä pelaajalta, minkä kertotaulun korteilla hän haluaa pelata (1-9). Peli arpoo muistipelin korteille järjestyksen näyttämättä, mitä niissä lukee. Kertolaskut eli kysymykset asetetaan yläriville ja vastaukset alariville. Pelaaja valitsee kysymyksistä yhden kortin, jonka jälkeen kortti näytetään pelaajalle. Tämän jälkeen pelaaja valitsee vastauksista kortin, joka näytetään pelaajalle. Jos kortit sopivat yhteen (kertolasku ja vastaus täsmäävät), ne jäävät näkyviin. Muussa tapauksessa kortit käännetään pois näkyvistä. Peliä jatketaan, kunnes kaikki parit on löydetty. Tämän jälkeen pelaajalta kysytään haluaako hän pelata uuden pelin vai lopettaa.
 
 **Käyttäjät:**
-Pelaajat
+Pelaaja
 
 **Käyttäjien toiminnot:**
 
 - Pelin käynnistäminen
-- Pelaaja voi valita kaksinpelin tai pelin robottia vastaan
-- Pelaaja voi valita tietyn kertotaulun laskuja tai kaikista kertotauluista koostuvan pelin
-- Palan valitseminen
+- Pelaaja voi valita minkä kertotaulun laskuista koostuvan pelin hän haluaa
+- Kysymyskortin valitseminen
+- Vastaukortin valitseminen
 - Pelin lopettaminen
