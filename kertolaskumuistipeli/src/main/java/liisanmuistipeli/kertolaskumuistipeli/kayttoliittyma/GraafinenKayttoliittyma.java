@@ -9,8 +9,11 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.LayoutManager;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,7 +33,7 @@ import liisanmuistipeli.kertolaskumuistipeli.logiikka.Pelitilanne;
  *
  * @author liisapauliina
  */
-public class GraafinenKayttoliittyma extends JPanel {
+public class GraafinenKayttoliittyma extends JPanel implements ActionListener {
 
     private JFrame ikkuna;
     private ArrayList<JButton> kysymysnapit;
@@ -38,6 +41,8 @@ public class GraafinenKayttoliittyma extends JPanel {
     private Logiikka logiikka;
     private Pelitilanne peli;
     private KorttienArpoja arpoja;
+    private JPanel korttipaneeli;
+    private JPanel nappipaneeli;
 
     public GraafinenKayttoliittyma(Logiikka logiikka) {
         this.logiikka = logiikka;
@@ -49,7 +54,7 @@ public class GraafinenKayttoliittyma extends JPanel {
 //    @Override
     public void run() {
         ikkuna = new JFrame("Kertolaskumuistipeli");
-        ikkuna.setPreferredSize(new Dimension(600, 400));
+        ikkuna.setPreferredSize(new Dimension(800, 400));
         ikkuna.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.lisaaKomponentit();
         ikkuna.pack();
@@ -65,9 +70,15 @@ public class GraafinenKayttoliittyma extends JPanel {
         //   Container kysymykset = new Container();
         //   Container vastaukset = new Container();
         // Kortti k = new Kortti(1,2,0);
-        GridLayout gl = new GridLayout(2, 0);
-
-        ikkuna.getContentPane().setLayout(gl);
+        
+        GridLayout gl = new GridLayout(0, 10);
+        korttipaneeli = new JPanel(gl);
+        FlowLayout fl = new FlowLayout();
+        nappipaneeli = new JPanel(fl);
+        GridLayout ikkunanGl = new GridLayout();
+        ikkuna.getContentPane().setLayout(ikkunanGl);
+        ikkuna.getContentPane().add(korttipaneeli);
+        ikkuna.getContentPane().add(nappipaneeli);
 
         for (Kortti kortti : this.peli.getKysymykset()) {
             JButton nappi = new JButton();
@@ -75,7 +86,7 @@ public class GraafinenKayttoliittyma extends JPanel {
             KysymystenKuuntelija kuuntelija = new KysymystenKuuntelija(this.peli.getKysymykset().indexOf(kortti), this.logiikka, this);
             nappi.addActionListener(kuuntelija);
             nappi.setText(kortti.toString());
-            ikkuna.getContentPane().add(nappi);
+            korttipaneeli.add(nappi);
 
         }
         for (Kortti kortti : this.peli.getVastaukset()) {
@@ -84,8 +95,12 @@ public class GraafinenKayttoliittyma extends JPanel {
             VastaustenKuuntelija kuuntelija = new VastaustenKuuntelija(this.peli.getVastaukset().indexOf(kortti), this.logiikka, this);
             nappi.addActionListener(kuuntelija);
             nappi.setText(kortti.toString());
-            ikkuna.getContentPane().add(nappi);
+            korttipaneeli.add(nappi);
         }
+
+        JButton uusiPeli = new JButton("Valitse uusi peli");
+        uusiPeli.addActionListener(this);
+        nappipaneeli.add(uusiPeli);
     }
 
     public void paivitaKortit() {
@@ -103,14 +118,24 @@ public class GraafinenKayttoliittyma extends JPanel {
         return logiikka;
     }
 
-//    public void peliLoppui() {
-//        String mitaTehdaan = VaihtoehtoinenAloitusvalikko.kysy("Haluatko uuden pelin? K = Kyllä, E = En");
-//        while (mitaTehdaan!= "K" && mitaTehdaan!= "E") {
-//            mitaTehdaan = VaihtoehtoinenAloitusvalikko.kysy("Haluatko uuden pelin? K = Kyllä, E = En");
-//        }
-//        if (mitaTehdaan == "K") {
-//            PelinAloittaja aloittaja = new PelinAloittaja();
-//            aloittaja.teeUusiPeli(aloittaja.kysyKertoja());
-//        } 
-//    }
+    public void peliLoppui() {
+        String mitaTehdaan = VaihtoehtoinenAloitusvalikko.kysy("Haluatko uuden pelin? K = Kyllä, E = En");
+        while (!mitaTehdaan.equals("K") && !mitaTehdaan.equals("E")) {
+            System.out.println("." + mitaTehdaan + ".");
+
+            System.out.println("pöööö");
+            mitaTehdaan = VaihtoehtoinenAloitusvalikko.kysy("Haluatko uuden pelin? K = Kyllä, E = En");
+        }
+        if (mitaTehdaan.equals("K")) {
+            PelinAloittaja aloittaja = new PelinAloittaja();
+            aloittaja.teeUusiPeli(aloittaja.kysyKertoja());
+        } else {
+            System.out.println("päätit lopettaa pelin");
+        }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        peliLoppui();
+    }
 }

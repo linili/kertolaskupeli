@@ -51,9 +51,9 @@ public class VastaustenKuuntelija implements ActionListener {
             if (!this.logiikka.onkoKaikkiLoydetty()) {
                 this.logiikka.setSaakoJoKaantaa(true);
             }
-//                else {
-//                 this.kali.peliLoppui();
-//            }
+                else {
+                 this.kali.peliLoppui();
+            }
         }
     }
 }

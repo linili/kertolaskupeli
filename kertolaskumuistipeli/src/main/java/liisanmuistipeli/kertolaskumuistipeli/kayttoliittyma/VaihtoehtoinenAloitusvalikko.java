@@ -14,14 +14,10 @@ import javax.swing.*;
 public class VaihtoehtoinenAloitusvalikko {
 
     public static String kysy(String kysymys) {
-        String vastaus = "o";
-        String vastattu;
-        boolean vastausKelpaa = false;
-        while (!vastausKelpaa) {
+        String vastaus = null;
+        while (vastaus == null) {
             try {
-                vastattu = JOptionPane.showInputDialog(kysymys);
-                vastaus = vastattu;
-                vastausKelpaa = true;
+                vastaus = JOptionPane.showInputDialog(kysymys);
             } catch (Exception e) {
             }
         }

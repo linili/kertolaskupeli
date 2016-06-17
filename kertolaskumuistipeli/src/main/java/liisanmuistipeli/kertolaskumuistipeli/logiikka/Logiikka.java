@@ -23,6 +23,14 @@ public class Logiikka {
         this.saakoJoKaantaa = true;
 
     }
+    public void lopeta() {
+        for (Kortti k : this.getPelitilanne().getKysymykset()) {
+            k.poistaPoydalta();
+        }
+        for (Kortti kv : this.peli.getVastaukset()) {
+            kv.poistaPoydalta();
+        }
+    }
 
     public boolean saakoJoKaantaa() {
         return saakoJoKaantaa;
