@@ -75,10 +75,8 @@ public class GraafinenKayttoliittyma extends JPanel implements ActionListener {
         korttipaneeli = new JPanel(gl);
         FlowLayout fl = new FlowLayout();
         nappipaneeli = new JPanel(fl);
-        GridLayout ikkunanGl = new GridLayout();
-        ikkuna.getContentPane().setLayout(ikkunanGl);
-        ikkuna.getContentPane().add(korttipaneeli);
-        ikkuna.getContentPane().add(nappipaneeli);
+        ikkuna.getContentPane().add(korttipaneeli, BorderLayout.CENTER);
+        ikkuna.getContentPane().add(nappipaneeli, BorderLayout.SOUTH);
 
         for (Kortti kortti : this.peli.getKysymykset()) {
             JButton nappi = new JButton();

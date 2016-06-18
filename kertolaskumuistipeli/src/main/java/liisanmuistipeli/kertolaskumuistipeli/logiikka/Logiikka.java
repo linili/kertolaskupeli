@@ -7,7 +7,7 @@ package liisanmuistipeli.kertolaskumuistipeli.logiikka;
 
 import java.util.ArrayList;
 
-/**
+/**Luokka pävittää pelitilannetta ja kortteja.
  *
  * @author liisapauliina
  */
@@ -31,7 +31,10 @@ public class Logiikka {
             kv.poistaPoydalta();
         }
     }
-
+/**
+ * Metodi palauttaa arvona tiedon siitä, saako pelaaja jo kääntää kortin.
+ * @return 
+ */
     public boolean saakoJoKaantaa() {
         return saakoJoKaantaa;
     }
