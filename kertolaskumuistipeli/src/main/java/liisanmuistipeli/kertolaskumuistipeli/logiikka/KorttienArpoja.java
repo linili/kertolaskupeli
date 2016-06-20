@@ -11,30 +11,17 @@ import java.util.Collections;
 
 /**
  * Luokka luo muistipeliin kortit ja sekoittaa ne. Luokasta käsin voidaan myös
- * luoda uusi pelitilanne arvotuilla korteilla.
+ * luoda uusi pelitilanne arvotuilla korteilla. Parametreina luokalla on
+ * kysymys- ja vastauskortit, kertoja, joka on pelaajalta kysytty luku sekä
+ * pelitilanne.
  *
  * @author liisapauliina
  */
 public class KorttienArpoja {
 
-    private Pelitilanne peli;
-    private int kertoja;
-    private ArrayList<Kortti> kysymysKortit;
-    private ArrayList<Kortti> vastausKortit;
 
-    /**
-     * Konstuktorissa alustetaan ArrayListit.
-     */
     public KorttienArpoja() {
 
-    }
-
-    public ArrayList<Kortti> getKysymykset() {
-        return this.kysymysKortit;
-    }
-
-    public ArrayList<Kortti> getVastaukset() {
-        return this.vastausKortit;
     }
 
     /**
@@ -44,16 +31,26 @@ public class KorttienArpoja {
      * @param kertoja on pelaajalta kysytty luku eli kertotaulu, jota halutaan
      * harjoitella.
      */
-    public void arvoKortit(int kertoja) {
-        this.kertoja = kertoja;
+    public ArrayList<Kortti> arvoVastausKortit(int kertoja) {
         int i = 1;
+        ArrayList<Kortti> vastausKortit = new ArrayList<>();
         while (i < 11) {
-            this.kysymysKortit.add(new Kortti(kertoja, i, 1));
-            this.vastausKortit.add(new Kortti(kertoja, i, 0));
+            vastausKortit.add(new Kortti(kertoja, i, 0));
             i++;
         }
-        Collections.shuffle(this.kysymysKortit);
-        Collections.shuffle(this.vastausKortit);
+        Collections.shuffle(vastausKortit);
+        return vastausKortit;
+    }
+
+    public ArrayList<Kortti> arvoKysymysKortit(int kertoja) {
+        int i = 1;
+        ArrayList<Kortti> kysymysKortit = new ArrayList<>();
+        while (i < 11) {
+            kysymysKortit.add(new Kortti(kertoja, i, 1));
+            i++;
+        }
+        Collections.shuffle(kysymysKortit);
+        return kysymysKortit;
     }
 
     /**
@@ -62,10 +59,8 @@ public class KorttienArpoja {
      * @return palauttaa Pelitilanteen arvotuilla korteilla.
      */
     public Pelitilanne luoSatunnainenPelitilanne(int kertoja) {
-        this.kysymysKortit = new ArrayList<Kortti>();
-        this.vastausKortit = new ArrayList<Kortti>();
-        arvoKortit(kertoja);
-        this.peli = new Pelitilanne(this.kertoja, this.kysymysKortit, this.vastausKortit);
-        return this.peli;
+        
+        Pelitilanne peli = new Pelitilanne(kertoja, arvoKysymysKortit(kertoja), arvoVastausKortit(kertoja));
+        return peli;
     }
 }
