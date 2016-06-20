@@ -11,7 +11,7 @@ import javax.swing.*;
  *
  * @author liisapauliina
  */
-public class VaihtoehtoinenAloitusvalikko {
+public class PonnahdusIkkunanLuoja {
 
     public static String kysy(String kysymys) {
         String vastaus = null;

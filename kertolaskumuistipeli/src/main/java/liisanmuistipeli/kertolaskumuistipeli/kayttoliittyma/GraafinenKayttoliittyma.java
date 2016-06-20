@@ -117,12 +117,12 @@ public class GraafinenKayttoliittyma extends JPanel implements ActionListener {
     }
 
     public void peliLoppui() {
-        String mitaTehdaan = VaihtoehtoinenAloitusvalikko.kysy("Haluatko uuden pelin? K = Kyllä, E = En");
+        String mitaTehdaan = PonnahdusIkkunanLuoja.kysy("Haluatko uuden pelin? K = Kyllä, E = En");
         while (!mitaTehdaan.equals("K") && !mitaTehdaan.equals("E")) {
             System.out.println("." + mitaTehdaan + ".");
 
             System.out.println("pöööö");
-            mitaTehdaan = VaihtoehtoinenAloitusvalikko.kysy("Haluatko uuden pelin? K = Kyllä, E = En");
+            mitaTehdaan = PonnahdusIkkunanLuoja.kysy("Haluatko uuden pelin? K = Kyllä, E = En");
         }
         if (mitaTehdaan.equals("K")) {
             PelinAloittaja aloittaja = new PelinAloittaja();

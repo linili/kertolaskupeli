@@ -23,9 +23,9 @@ public class PelinAloittaja {
     }
 
     public int kysyKertoja() {
-        int kertoja = VaihtoehtoinenAloitusvalikko.kysyKertoja("Syötä kertotaulu (1-9) ");
+        int kertoja = PonnahdusIkkunanLuoja.kysyKertoja("Syötä kertotaulu (1-9) ");
         while (kertoja < 1 || kertoja > 9) {
-            kertoja = VaihtoehtoinenAloitusvalikko.kysyKertoja("Syötä kertotaulu väliltä 1-9 ");
+            kertoja = PonnahdusIkkunanLuoja.kysyKertoja("Syötä kertotaulu väliltä 1-9 ");
         }
         return kertoja;
     }
