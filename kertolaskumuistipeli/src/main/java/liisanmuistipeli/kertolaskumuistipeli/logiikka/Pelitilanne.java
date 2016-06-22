@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
+ * Luokka pitää yllä tietoa pelaajalta kysytystä kertojasta, kysymyskorteista ja
+ * vastaukorteista.
  *
  * @author liisapauliina
  */
@@ -19,11 +21,18 @@ public class Pelitilanne {
     private ArrayList<Kortti> vastausKortit;
     private int kertoja;
 
+    /**
+     * Luokan konstruktorissa annetaan kertoja, kysymykset ja vastaukset.
+     *
+     * @param kertoja on pelaajalta kysytty kertotaulun kertoja.
+     * @param kysymykset on kysymyskortit.
+     * @param vastaukset on vastauskortit.
+     */
     public Pelitilanne(int kertoja, ArrayList<Kortti> kysymykset, ArrayList<Kortti> vastaukset) {
         this.kertoja = kertoja;
         this.kysymysKortit = kysymykset;
         this.vastausKortit = vastaukset;
-        
+
     }
 
     public int getKertoja() {
@@ -37,30 +46,4 @@ public class Pelitilanne {
     public ArrayList<Kortti> getKysymykset() {
         return this.kysymysKortit;
     }
-
-    
-    
-   
-
-    
-
-    
-
-//    public void tulostaKortit() {
-//        System.out.println("--------");
-//        for (Kortti kk : this.kysymysKortit) {
-//            System.out.println(kk);
-//        }
-//        System.out.println("");
-//
-//        for (Kortti kv : this.vastausKortit) {
-//            System.out.println(kv);
-//        }
-//        System.out.println("");
-//        System.out.println("--------");
-//        System.out.println("");
-//    }
-
-
-  
 }

@@ -7,9 +7,11 @@ package liisanmuistipeli.kertolaskumuistipeli.kayttoliittyma;
 
 import liisanmuistipeli.kertolaskumuistipeli.logiikka.Logiikka;
 import liisanmuistipeli.kertolaskumuistipeli.logiikka.KorttienArpoja;
-import liisanmuistipeli.kertolaskumuistipeli.logiikka.Pelitilanne;
 
 /**
+ * Luokka toimii pelin käynnistäjänä. Luokka tekee ponnahdusikkunan, jolla
+ * pelaajalta kysytään lukua väliltä 1-9. Luokka luo uuden pelitilanteen ,
+ * logiikan ja graafisen käyttöliittymän.
  *
  * @author liisapauliina
  */
@@ -22,6 +24,13 @@ public class PelinAloittaja {
     public PelinAloittaja() {
     }
 
+    /**
+     * Metodi tekee ponnahdusikkunan, joka kysyy pelaajalta kertotaulua väliltä
+     * 1-9 ja palauttaa pelaajan antaman luvun, jos se on sallitulta väliltä.
+     * Muutoin kysytään uudestaan.
+     *
+     * @return kertoja eli pelaajan antaman luvun.
+     */
     public int kysyKertoja() {
         int kertoja = PonnahdusIkkunanLuoja.kysyKertoja("Syötä kertotaulu (1-9) ");
         while (kertoja < 1 || kertoja > 9) {
@@ -30,6 +39,11 @@ public class PelinAloittaja {
         return kertoja;
     }
 
+    /**
+     * Metodi alustaa uuden pelin.
+     *
+     * @param kertoja on kertotaulu, jota halutaan harjoitella.
+     */
     public void teeUusiPeli(int kertoja) {
         this.arpoja = new KorttienArpoja();
         this.logiikka = new Logiikka(this.arpoja.luoSatunnainenPelitilanne(kertoja));

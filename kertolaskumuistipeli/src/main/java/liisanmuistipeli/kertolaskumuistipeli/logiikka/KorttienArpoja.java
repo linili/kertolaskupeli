@@ -19,7 +19,6 @@ import java.util.Collections;
  */
 public class KorttienArpoja {
 
-
     public KorttienArpoja() {
 
     }
@@ -59,7 +58,7 @@ public class KorttienArpoja {
      * @return palauttaa Pelitilanteen arvotuilla korteilla.
      */
     public Pelitilanne luoSatunnainenPelitilanne(int kertoja) {
-        
+
         Pelitilanne peli = new Pelitilanne(kertoja, arvoKysymysKortit(kertoja), arvoVastausKortit(kertoja));
         return peli;
     }

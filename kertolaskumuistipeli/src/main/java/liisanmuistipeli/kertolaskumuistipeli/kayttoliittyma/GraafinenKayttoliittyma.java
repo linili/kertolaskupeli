@@ -6,19 +6,13 @@
 package liisanmuistipeli.kertolaskumuistipeli.kayttoliittyma;
 
 import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JButton;
-import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
@@ -28,8 +22,8 @@ import liisanmuistipeli.kertolaskumuistipeli.logiikka.KorttienArpoja;
 import liisanmuistipeli.kertolaskumuistipeli.logiikka.Pelitilanne;
 
 /**
- * Luokka luo ikkunan, jossa pelinaloitusvalikko, asettaa kortit esille ja
- * kÃ¤ynnistÃ¤Ã¤ pelin
+ * Luokka toimii graafisena käyttöliittymänä pelille. Se päivittää jokaisen
+ * kortin klikkauksen jälkeen tilanteen pöydällä.
  *
  * @author liisapauliina
  */
@@ -44,6 +38,12 @@ public class GraafinenKayttoliittyma extends JPanel implements ActionListener {
     private JPanel korttipaneeli;
     private JPanel nappipaneeli;
 
+    /**
+     * Konstuktorissa käyttöliittymälle annetaan logiikka. Lisäksi alustetaan
+     * kysymykset ja vastaukset, jotka koostuvat JButtoneista.
+     *
+     * @param logiikka on pelin logiikka.
+     */
     public GraafinenKayttoliittyma(Logiikka logiikka) {
         this.logiikka = logiikka;
         this.peli = logiikka.getPelitilanne();
@@ -51,7 +51,10 @@ public class GraafinenKayttoliittyma extends JPanel implements ActionListener {
         this.vastausnapit = new ArrayList<JButton>();
     }
 
-//    @Override
+    /**
+     * Metodi avaa peliikkunan ja asettaa JButtoneista koostuvat kysymykset ja
+     * vastaukset pöydälle.
+     */
     public void run() {
         ikkuna = new JFrame("Kertolaskumuistipeli");
         ikkuna.setPreferredSize(new Dimension(800, 400));
@@ -62,15 +65,14 @@ public class GraafinenKayttoliittyma extends JPanel implements ActionListener {
     }
 
     /**
-     * Metodi, joka asettaa kortit esille
+     * Metodi, joka luo JButtonin jokaiselle kortille, asettaa sille kuuntelijan
+     * sekä lisää sen korttipaneeliin. Metodi luo myös uusi peli-nappulan ja
+     * lisää sen nappipaneeliin.
      *
      * @param container on laatikko, johon kortit asetetaan.
      */
     public void lisaaKomponentit() {
-        //   Container kysymykset = new Container();
-        //   Container vastaukset = new Container();
-        // Kortti k = new Kortti(1,2,0);
-        
+
         GridLayout gl = new GridLayout(0, 10);
         korttipaneeli = new JPanel(gl);
         FlowLayout fl = new FlowLayout();
@@ -101,6 +103,9 @@ public class GraafinenKayttoliittyma extends JPanel implements ActionListener {
         nappipaneeli.add(uusiPeli);
     }
 
+    /**
+     * Metodi päivittää tekstit korteissa.
+     */
     public void paivitaKortit() {
 
         for (int i = 0; i < this.kysymysnapit.size(); i++) {
@@ -116,12 +121,14 @@ public class GraafinenKayttoliittyma extends JPanel implements ActionListener {
         return logiikka;
     }
 
+    /**
+     * Metodi tekee ponnahdusikkunan, joka kysyy pelaajalta haluaako hän uuden
+     * pelin. Jos vastataan "K", käynnistetään uusi peli. Jos vastaus on "E", ei
+     * tehdä mitään. Jos vastaus on joku muu, kysytään uudelleen.
+     */
     public void peliLoppui() {
         String mitaTehdaan = PonnahdusIkkunanLuoja.kysy("Haluatko uuden pelin? K = Kyllä, E = En");
         while (!mitaTehdaan.equals("K") && !mitaTehdaan.equals("E")) {
-            System.out.println("." + mitaTehdaan + ".");
-
-            System.out.println("pöööö");
             mitaTehdaan = PonnahdusIkkunanLuoja.kysy("Haluatko uuden pelin? K = Kyllä, E = En");
         }
         if (mitaTehdaan.equals("K")) {

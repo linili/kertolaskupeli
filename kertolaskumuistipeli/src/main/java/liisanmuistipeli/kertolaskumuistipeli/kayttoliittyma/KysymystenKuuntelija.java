@@ -14,6 +14,9 @@ import liisanmuistipeli.kertolaskumuistipeli.logiikka.Kortti;
 import liisanmuistipeli.kertolaskumuistipeli.logiikka.Pelitilanne;
 
 /**
+ * Luokka toimii kysymyskortin kuuntelijana ja välittää käskyn logiikalle, kun
+ * kysymyskortti valitaan. Käyttöliittymää pyydetään päivittämään kortit, kun
+ * kortti valitaan.
  *
  * @author liisapauliina
  */
@@ -23,6 +26,14 @@ public class KysymystenKuuntelija implements ActionListener {
     private int paikka;
     private GraafinenKayttoliittyma kali;
 
+    /**
+     * Konstruktorissa kuuntelijalle annetaan kortin paikka pöydällä, pelin
+     * logiikka ja käyttöliittyma.
+     *
+     * @param paikka on kysymyskortin paikka pöydällä
+     * @param logiikka on pelin logiikka
+     * @param kali on pelin käyttöliittymä
+     */
     public KysymystenKuuntelija(int paikka, Logiikka logiikka, GraafinenKayttoliittyma kali) {
         this.logiikka = logiikka;
         this.paikka = paikka;

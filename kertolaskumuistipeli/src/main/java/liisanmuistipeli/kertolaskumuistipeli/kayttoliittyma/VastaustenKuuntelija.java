@@ -15,6 +15,9 @@ import liisanmuistipeli.kertolaskumuistipeli.logiikka.Kortti;
 import liisanmuistipeli.kertolaskumuistipeli.logiikka.Logiikka;
 
 /**
+ * Luokka toimii vastauskortin kuuntelijana. VastauskortinKuuntelija tunnistaa
+ * hiiren painalluksen ja välittää käskyjä käyttöliittymälle ja logiikalle.
+ * Käyttöliittymää pyydetään päivittämään kortit.
  *
  * @author liisapauliina
  */
@@ -25,6 +28,14 @@ public class VastaustenKuuntelija implements ActionListener {
     private GraafinenKayttoliittyma kali;
     private Ajastin ajastin;
 
+    /**
+     * Konstruktorissa alustetaan parametrit paikka, logiikka ja käyttis sekä
+     * luodaan ajastin.
+     *
+     * @param paikka kertoo vastauskortin paikan.
+     * @param logiikka on pelin logiikka
+     * @param kali on pelin Graafinen käyttöjärjestelmä
+     */
     public VastaustenKuuntelija(int paikka, Logiikka logiikka, GraafinenKayttoliittyma kali) {
         this.logiikka = logiikka;
         this.paikka = paikka;
@@ -43,6 +54,12 @@ public class VastaustenKuuntelija implements ActionListener {
         }
     }
 
+    /**
+     * Metodi tarkistaa löytyikö pari ja käynnistää ajastimen, jos ei löytynyt.
+     * Jos pari löytyi, kortit käännetään pois näkyvistä. Lisäksi tarkistetaan,
+     * onko kaikki parit löydetty. Jos ei, annetaan pelaajalle lupa kääntää uusi
+     * kortti. Jos kaikki parit löydetty, käynnistetään pelinlopetus-valikko.
+     */
     public void tarkistaTilanne() {
         if (!this.logiikka.loytyikoPari()) {
             this.ajastin.start();
@@ -50,9 +67,8 @@ public class VastaustenKuuntelija implements ActionListener {
             this.logiikka.poistaKortit(this.logiikka.getKaannettyKysymysKortti(), this.logiikka.getKaannettyVastausKortti());
             if (!this.logiikka.onkoKaikkiLoydetty()) {
                 this.logiikka.setSaakoJoKaantaa(true);
-            }
-                else {
-                 this.kali.peliLoppui();
+            } else {
+                this.kali.peliLoppui();
             }
         }
     }

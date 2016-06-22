@@ -10,6 +10,8 @@ import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
 /**
+ * Ajastin pysäyttää pelin, kun paria ei löydetty. Kun ajastin loppuu, kortit
+ * käännetään pois näkyvistä ja käyttöliittymää pyydetään päivittämään kortit.
  *
  * @author liisapauliina
  */
@@ -17,6 +19,12 @@ public class Ajastin extends Timer implements ActionListener {
 
     private GraafinenKayttoliittyma kali;
 
+    /**
+     * Konstruktorissa asetetaan aika, joksi peli pysähtyy.
+     *
+     * @param aika on aika joksi aikaa ajastin pysäyttää pelin.
+     * @param kali on pelin käyttöliittymä
+     */
     public Ajastin(int aika, GraafinenKayttoliittyma kali) {
         super(aika, null);
         this.addActionListener(this);
