@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2016</copyright>
     <item>
-      <title>File: 12,
-             Errors: 0,
+      <title>File: 11,
+             Errors: 1,
              Warnings: 0,
              Infos: 0
       </title>
@@ -74,7 +74,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#liisanmuistipeli.kertolaskumuistipeli.kayttoliittyma.Main.java">liisanmuistipeli/kertolaskumuistipeli/kayttoliittyma/Main.java</a>
+                  <a href="${project.url}/checkstyle.html#liisanmuistipeli.kertolaskumuistipeli.kayttoliittyma.KysymystenKuuntelija.java">liisanmuistipeli/kertolaskumuistipeli/kayttoliittyma/KysymystenKuuntelija.java</a>
                 </td>
                 <td>
                   0
@@ -88,7 +88,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#liisanmuistipeli.kertolaskumuistipeli.kayttoliittyma.KysymystenKuuntelija.java">liisanmuistipeli/kertolaskumuistipeli/kayttoliittyma/KysymystenKuuntelija.java</a>
+                  <a href="${project.url}/checkstyle.html#liisanmuistipeli.kertolaskumuistipeli.kayttoliittyma.PonnahdusIkkunanLuoja.java">liisanmuistipeli/kertolaskumuistipeli/kayttoliittyma/PonnahdusIkkunanLuoja.java</a>
                 </td>
                 <td>
                   0
@@ -153,26 +153,12 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#liisanmuistipeli.kertolaskumuistipeli.logiikka.Pelitilanne.java">liisanmuistipeli/kertolaskumuistipeli/logiikka/Pelitilanne.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#liisanmuistipeli.kertolaskumuistipeli.kayttoliittyma.VaihtoehtoinenAloitusvalikko.java">liisanmuistipeli/kertolaskumuistipeli/kayttoliittyma/VaihtoehtoinenAloitusvalikko.java</a>
+                  <a href="${project.url}/checkstyle.html#liisanmuistipeli.kertolaskumuistipeli.main.Main.java">liisanmuistipeli/kertolaskumuistipeli/main/Main.java</a>
                 </td>
                 <td>
                   0
@@ -186,7 +172,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#liisanmuistipeli.kertolaskumuistipeli.kayttoliittyma.Aloitusvalikko.java">liisanmuistipeli/kertolaskumuistipeli/kayttoliittyma/Aloitusvalikko.java</a>
+                  <a href="${project.url}/checkstyle.html#liisanmuistipeli.kertolaskumuistipeli.logiikka.Pelitilanne.java">liisanmuistipeli/kertolaskumuistipeli/logiikka/Pelitilanne.java</a>
                 </td>
                 <td>
                   0
