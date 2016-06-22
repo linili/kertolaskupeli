@@ -51,6 +51,7 @@ public class VastaustenKuuntelija implements ActionListener {
             this.logiikka.setSaakoJoKaantaa(false);
             this.kali.paivitaKortit();
             tarkistaTilanne();
+            this.kali.paivitaKortit();
         }
     }
 

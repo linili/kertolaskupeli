@@ -184,31 +184,43 @@ public class LogiikkaTest {
         this.logiikka.valitseVastauskortti(1);
         assertEquals(this.logiikka.onkoKaksiKaannettyna(), true);
     }
+
     @Test
     public void palauttaakoOikeinKunYksiKaannettyna() {
         this.logiikka.valitseKysymyskortti(1);
         assertEquals(this.logiikka.onkoKaksiKaannettyna(), false);
     }
+
     @Test
     public void loytaakoParin() {
         this.logiikka.valitseKysymyskortti(0);
         this.logiikka.valitseVastauskortti(0);
         assertEquals(this.logiikka.loytyikoPari(), true);
     }
+
+    @Test
+    public void loytaakoParinKunYksiKaannetty() {
+        this.logiikka.valitseKysymyskortti(0);
+        assertEquals(this.logiikka.loytyikoPari(), false);
+    }
+
     @Test
     public void palauttaakoOikeinKunEiParia() {
         this.logiikka.valitseKysymyskortti(1);
         this.logiikka.valitseVastauskortti(0);
         assertEquals(this.logiikka.loytyikoPari(), false);
     }
+
     @Test
     public void saakoKaantaaAlussa() {
         assertEquals(this.logiikka.saakoJoKaantaa(), true);
     }
+
     @Test
     public void onkoKysymystenVuoroAlussa() {
         assertEquals(this.logiikka.onkoKysymystenVuoro(), true);
     }
+
     @Test
     public void onkoKysymystenVuoroKunPainettuKysymysta() {
         this.logiikka.valitseKysymyskortti(1);

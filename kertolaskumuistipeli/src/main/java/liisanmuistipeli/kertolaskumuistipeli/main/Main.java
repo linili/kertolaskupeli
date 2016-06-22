@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package liisanmuistipeli.kertolaskumuistipeli.kayttoliittyma;
+package liisanmuistipeli.kertolaskumuistipeli.main;
 
-import java.util.ArrayList;
-import liisanmuistipeli.kertolaskumuistipeli.logiikka.Kortti;
+import liisanmuistipeli.kertolaskumuistipeli.kayttoliittyma.PelinAloittaja;
 
 /**
  *
@@ -21,18 +20,6 @@ public class Main {
 
         PelinAloittaja aloittaja = new PelinAloittaja();
         aloittaja.teeUusiPeli(aloittaja.kysyKertoja());
-//        ArrayList<Kortti> kyssarit = new ArrayList<>();
-//        kyssarit.add(new Kortti(4,3,1));
-//        kyssarit.add(new Kortti (4,5,1));
-//        ArrayList<Kortti> vastaukset = new ArrayList<>();
-//        vastaukset.add(new Kortti(2,2,0));
-//        vastaukset.add(new Kortti(3,2,0));
-        // Aloitusvalikko valikko = new Aloitusvalikko();
-        // valikko.run();
-        //   GraafinenKayttoliittyma kl = new GraafinenKayttoliittyma();
-        //   kl.run();
-        // Peli peli = new Peli();
-        // peli.kaynnista();
     }
 
 }

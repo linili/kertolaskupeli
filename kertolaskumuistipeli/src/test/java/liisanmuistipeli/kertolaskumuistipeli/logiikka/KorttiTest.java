@@ -17,67 +17,89 @@ import static org.junit.Assert.*;
  * @author liisapauliina
  */
 public class KorttiTest {
-    Kortti kortti;
+
+    Kortti vastauskortti;
+    Kortti kysymyskortti;
+
     public KorttiTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
-        kortti = new Kortti(5,4,0);
+        vastauskortti = new Kortti(5, 4, 0);
+        kysymyskortti = new Kortti(5, 4, 1);
     }
-    
+
     @After
     public void tearDown() {
     }
-    
-     @Test
-     public void ensinPoydalla() {
-     assertEquals(false, kortti.onkoLoydetty());
-     }
-     
-     @Test
-     public void ensinPiilossa() {
-     assertEquals(false, kortti.onkoKaannetty());
-     }
-     @Test
-     public void alkuarvotOikeinKertoja() {
-     assertEquals(5, kortti.getKertoja());
-     }
-     
-     @Test
-     public void alkuarvotOikeinKerrottava() {
-     assertEquals(4, kortti.getKerrottava());
-     }
-     
-     @Test
-     public void alkuarvotOikeinTyyppi() {
-     assertEquals(0, kortti.getTyyppi());
-     }
-     
-     @Test
-     public void kaantaakoKortin() {
-         kortti.nayta();
-     assertEquals(true, kortti.onkoKaannetty());
-     }
-     
-     @Test
-     public void piilottaakoKortin() {
-         kortti.piiloon();
-     assertEquals(false, kortti.onkoKaannetty());
-     }
-     
-     @Test
-     public void poistaakoKortin() {
-         kortti.poistaPoydalta();
-     assertEquals(true, kortti.onkoLoydetty());
-     }
-    
+
+    @Test
+    public void ensinPoydalla() {
+        assertEquals(false, vastauskortti.onkoLoydetty());
+    }
+
+    @Test
+    public void ensinPiilossa() {
+        assertEquals(false, vastauskortti.onkoKaannetty());
+    }
+
+    @Test
+    public void alkuarvotOikeinKertoja() {
+        assertEquals(5, vastauskortti.getKertoja());
+    }
+
+    @Test
+    public void alkuarvotOikeinKerrottava() {
+        assertEquals(4, vastauskortti.getKerrottava());
+    }
+
+    @Test
+    public void alkuarvotOikeinTyyppi() {
+        assertEquals(0, vastauskortti.getTyyppi());
+    }
+
+    @Test
+    public void kaantaakoKortin() {
+        vastauskortti.nayta();
+        assertEquals(true, vastauskortti.onkoKaannetty());
+    }
+
+    @Test
+    public void piilottaakoKortin() {
+        vastauskortti.piiloon();
+        assertEquals(false, vastauskortti.onkoKaannetty());
+    }
+
+    @Test
+    public void poistaakoKortin() {
+        vastauskortti.poistaPoydalta();
+        assertEquals(true, vastauskortti.onkoLoydetty());
+    }
+
+    @Test
+    public void tulostaaKysymyksen() {
+        this.kysymyskortti.nayta();
+        assertEquals("5x4", this.kysymyskortti.toString());
+    }
+
+    @Test
+    public void tulostaaVastauksen() {
+        this.kysymyskortti.nayta();
+        this.vastauskortti.nayta();
+        assertEquals("20", this.vastauskortti.toString());
+    }
+
+    @Test
+    public void tulostaaPiilotetun() {
+        assertEquals("XXX", this.kysymyskortti.toString());
+    }
 }

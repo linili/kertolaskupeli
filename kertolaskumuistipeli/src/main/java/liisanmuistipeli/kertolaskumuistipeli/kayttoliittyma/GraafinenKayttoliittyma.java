@@ -6,6 +6,7 @@
 package liisanmuistipeli.kertolaskumuistipeli.kayttoliittyma;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
@@ -56,9 +57,10 @@ public class GraafinenKayttoliittyma extends JPanel implements ActionListener {
      * vastaukset pöydälle.
      */
     public void run() {
-        ikkuna = new JFrame("Kertolaskumuistipeli");
+        ikkuna = new JFrame("Kertolaskumuistipeli - käännä aina ensin ylärivistä kysymyskortti");
         ikkuna.setPreferredSize(new Dimension(800, 400));
         ikkuna.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        ikkuna.setBackground(Color.yellow);
         this.lisaaKomponentit();
         ikkuna.pack();
         ikkuna.setVisible(true);
@@ -77,6 +79,7 @@ public class GraafinenKayttoliittyma extends JPanel implements ActionListener {
         korttipaneeli = new JPanel(gl);
         FlowLayout fl = new FlowLayout();
         nappipaneeli = new JPanel(fl);
+        nappipaneeli.setBackground(Color.BLACK);
         ikkuna.getContentPane().add(korttipaneeli, BorderLayout.CENTER);
         ikkuna.getContentPane().add(nappipaneeli, BorderLayout.SOUTH);
 
@@ -100,6 +103,7 @@ public class GraafinenKayttoliittyma extends JPanel implements ActionListener {
 
         JButton uusiPeli = new JButton("Valitse uusi peli");
         uusiPeli.addActionListener(this);
+        uusiPeli.setBackground(Color.ORANGE);
         nappipaneeli.add(uusiPeli);
     }
 
@@ -110,9 +114,15 @@ public class GraafinenKayttoliittyma extends JPanel implements ActionListener {
 
         for (int i = 0; i < this.kysymysnapit.size(); i++) {
             kysymysnapit.get(i).setText(this.peli.getKysymykset().get(i).toString());
+            if (this.peli.getKysymykset().get(i).onkoLoydetty()) {
+                kysymysnapit.get(i).setBackground(Color.PINK);
+            }
         }
         for (int i = 0; i < this.vastausnapit.size(); i++) {
             vastausnapit.get(i).setText(this.peli.getVastaukset().get(i).toString());
+            if (this.peli.getVastaukset().get(i).onkoLoydetty()) {
+                vastausnapit.get(i).setBackground(Color.PINK);
+            }
         }
 
     }
