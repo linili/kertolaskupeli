@@ -20,3 +20,6 @@ Pelaaja
 ![Sekvenssikaavio: vastauksen kääntö onnistuu](https://github.com/linili/kertolaskupeli/blob/master/Dokumentaatio/sekvenssikaavio_OnnistunutVastauskortinKaanto.png "vastauksen kääntö onnistuu")
 
 [Luokkakaavio](https://github.com/linili/kertolaskupeli/blob/master/Dokumentaatio/muistipeli_luokkakaavio.png "Luokkakaavio")
+
+##Rakennekuvaus
+Pelitilanne sisältää kortteja. Logiikka hallitsee pelitilanteen kortteja. Logiikalle käskyjä välittää käyttöliittymä sekä kysymysten- ja vastaustenkuuntelijat. Vastaustenkuuntelija luo ajastimen, jolla peli saadaan pysähtymään siksi ajaksi, että pelaaja näkee kortit, ennenkuin ne käännetään takaisin. Pelinaloittaja ja korttienarpoja luovat uuden pelin.  
