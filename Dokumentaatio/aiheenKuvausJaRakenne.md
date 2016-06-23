@@ -13,9 +13,16 @@ Pelaaja
 - Vastaukortin valitseminen
 - Pelin lopettaminen
 
+##Sekvenssikaaviot
+**Pelin aloitus**
+
 ![Sekvenssikaavio pelin aloitus](https://github.com/linili/kertolaskupeli/blob/master/Dokumentaatio/sekvenssikaavio_aloitus.png "Sekvenssikaavio: Pelin aloitus")
 
+**Kysymyskortin kääntö**
+
 ![Sekvenssikaavio kysymyksen kääntö onnistuu](https://github.com/linili/kertolaskupeli/blob/master/Dokumentaatio/kysymyksenkaanto_uusi.png "Sekvenssikaavio:_kysymyksen_kääntö_onnistuu")
+
+**Vastauskortin kääntö**
 
 ![Sekvenssikaavio: vastauksen kääntö onnistuu](https://github.com/linili/kertolaskupeli/blob/master/Dokumentaatio/vastauskortinkaanto_uusi.png "vastauksen kääntö onnistuu")
 
