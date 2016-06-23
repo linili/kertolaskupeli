@@ -17,7 +17,7 @@ Pelaaja
 
 ![Sekvenssikaavio kysymyksen kääntö onnistuu]https://github.com/linili/kertolaskupeli/blob/master/Dokumentaatio/kysymyksenkaanto_uusi.png "Sekvenssikaavio:_kysymyksen_kääntö_onnistuu")
 
-![Sekvenssikaavio: vastauksen kääntö onnistuu](https://github.com/linili/kertolaskupeli/blob/master/Dokumentaatio/sekvenssikaavio_OnnistunutVastauskortinKaanto.png "vastauksen kääntö onnistuu")
+![Sekvenssikaavio: vastauksen kääntö onnistuu](https://github.com/linili/kertolaskupeli/blob/master/Dokumentaatio/vastauskortinkaanto_uusi.png "vastauksen kääntö onnistuu")
 
 [Luokkakaavio](https://github.com/linili/kertolaskupeli/blob/master/Dokumentaatio/muistipeli_luokkakaavio.png "Luokkakaavio")
 
