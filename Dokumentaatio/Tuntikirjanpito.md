@@ -14,4 +14,5 @@ Päivä | Tunnit | Kuvaus
 15.6.2016 | 6h | logiikkaa ja grafiikkaa
 16.6.2016 | 9h | testejä ja ponnahdusikkunoita, sekvenssikaavioita, luokkakaavion ja aihemäärittelyn päivitys
 20.6.2016 | 3h | luokkakaavion korjaus, hienosäätöjä koodiin
-22.6.2016 | 4h | sekvenssikaavioiden korjaukset, jarin teko, ohjelmaan vähän väriä, raportit ajantasalle.
+22.6.2016 | 4h | jarin teko, ohjelmaan vähän väriä, raportit ajantasalle.
+23.6.2016 | 4h | Sekvenssikaaviot uusiksi
